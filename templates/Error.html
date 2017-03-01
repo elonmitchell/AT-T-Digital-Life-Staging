@@ -1,0 +1,8 @@
+<div class="error-box">
+    <p class="errorheadline"><%= i18n.get('errorHeadlineText') %>
+        <p><%= getErrorMessage() %></p>
+        <% if (getRequestError() !== "") { %>
+                <p><%= i18n.get('errorText') %> -> <%= getRequestError() %>
+        <% } %>
+    </p>
+</div>

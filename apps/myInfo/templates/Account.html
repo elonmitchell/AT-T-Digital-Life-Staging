@@ -1,0 +1,119 @@
+<div class="grid page-my-info-component">
+    <div class="row">
+        <div class="col-1-1">
+            <h1 class="title"><%= i18n.get('myInfoGreetings') %> <%= name() %></h1>
+            <% if (isAnonymous() === true) { %>
+                <h2 class="guestUserHeadline">
+                    <%= i18n.get('guestUserHeadlineText') %>
+                    <a href="#authenticate"><%= i18n.get('LogInText') %></a>
+                </h2>
+            <% } else { %>
+                <% if (getAttribute("address") !== "") { %>
+                    <h2 class="account-info"><%= getAttribute("address") %>, <%= getAttribute("city") %>, <%= getAttribute("state") %> <%= getAttribute("zipcode") %></h2>
+                <% } %>
+                <% var email = getAttribute("email") %>
+                <% var phone = getAttribute("phone") %>
+                <% if ( email !== "" || phone !== "") { %>
+                    <h2 class="account-info">
+                        <% if (email !== "") { %>
+                            <%= email %>
+                        <% } %>
+                        <% if (email !== "" && phone !== "") { %> | <% } %>
+                        <% if (phone !== "") { %>
+                            <%= phone %>
+                        <% } %>
+                    </h2>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+    <% if (isAnonymous() === false) { %>
+        <div class="row">
+            <div class="well">
+                <div class="col-1-4 billing-section last-bill">
+                    <div class="heading"><%= i18n.get('myInfoLastBill') %></div>
+                    <div class="data">
+                        <% if (getAttribute("lastBillAmount") !== "") { %>
+                            <span class="currency"><%= i18n.get('currency') %></span>
+                            <%= getAttribute("lastBillAmount") %>
+                        <% } else { %>
+                            <%= i18n.get('notAvailableShort')%>
+                        <% }%>
+                    </div>
+                </div>
+                <div class="col-1-4 billing-section adjustments">
+                    <div class="heading"><%= i18n.get('myInfoAdjustments') %></div>
+                    <div class="data">
+                        <% if (getAttribute("billAdjustments")!== "") { %>
+                            <span class="currency"><%= i18n.get('currency') %></span>
+                            <%= getAttribute("billAdjustments") %>
+                        <% } else { %>
+                            <%= i18n.get('notAvailableShort')%>
+                        <% }%>
+                    </div>
+                </div>
+                <div class="col-1-4 billing-section payments">
+                    <div class="heading"><%= i18n.get('myInfoRecentPayments') %></div>
+                    <div class="data">
+                        <% if (getAttribute("recentPayments") !== "") { %>
+                            <span class="currency"><%= i18n.get('currency') %></span>
+                            <%= getAttribute("recentPayments") %>
+                        <% } else { %>
+                            <%= i18n.get('notAvailableShort')%>
+                        <% }%>
+                    </div>
+                </div>
+                <div class="col-1-4 billing-section balance">
+                    <div class="heading"><%= i18n.get('myInfoCurrentBalance') %></div>
+                    <div class="data">
+                        <% if (getAttribute("currentBalance") !== "") { %>
+                            <span class="currency"><%= i18n.get('currency') %></span>
+                            <%= getAttribute("currentBalance") %>
+                        <% } else { %>
+                            <%= i18n.get('notAvailableShort')%>
+                        <% }%>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="well">
+                <div class="col-1-1 progress-section">
+                    <h2 class="heading"><%= i18n.get('myInfoBandwidthConsumption') %></h2>
+                    <% if (getAttribute("bandwidthRemaining") !== "") { %>
+                        <div class="progress">
+                            <%
+                                var progressClass = "";
+                                var progressValue = percentBandwidthRemaining();
+                            %>
+                            <%
+                                if (progressValue > 85) {
+                                    progressClass = "progress-bar-danger";
+                                } else if (progressValue > 70) {
+                                    progressClass = "progress-bar-warning";
+                                }
+                            %>
+                            <div class="progress-bar <%= progressClass %>" style="width: <%= progressValue %>%;">
+                                <%= getAttribute("bandwidthRemaining") %> <%= getAttribute("bandwidthUnit") %>
+                            </div>
+                        </div>
+                        <div class="progress-label-container clearfix">
+                            <div class="float-left"><%= getAttribute("bandwidthMin") %> <%= getAttribute("bandwidthUnit") %></div>
+                            <div class="float-right"><%= getAttribute("bandwidthMax") %> <%= getAttribute("bandwidthUnit") %></div>
+                        </div>
+                    <% } else { %>
+                        <div class="data"><%= i18n.get('notAvailableShort')%></div>
+                    <% }%>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="well">
+            <a href="#" class="ads"><div class="name"><%= i18n.get('ContentArea1Text') %></div></a>
+            <a href="#" class="ads"><div class="name"><%= i18n.get('ContentArea2Text') %></div></a>
+            <a href="#" class="ads"><div class="name"><%= i18n.get('ContentArea3Text') %></div></a>
+        </div>
+    <% } %>
+</div>

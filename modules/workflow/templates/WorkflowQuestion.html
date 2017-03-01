@@ -1,0 +1,65 @@
+<div id="workflow-question" class="workflow-content">
+    <div class="well">
+        <div class="message">
+            <% if (getHeadline() !== '') { %>
+            <strong><%= getHeadline() %></strong>
+            <div class="blank-separator"></div>
+            <% } %>
+            <% if (getBody() !== '') { %>
+            <%= getBody() %>
+            <% } %>
+        </div>
+    </div>
+
+    <%
+    var steps = getSteps();
+    for( i=0; i < steps.length; i++ ) {
+    %>
+    <div class="description">
+        <div class="step_name"> <%= steps[i].name %> </div>
+        <div class="step_message"> <p><i> <%= steps[i].message %> </i></p> </div>
+    </div>
+    <%
+    }
+    %>
+
+    <% if (getSelectionType() == "hyperlink") { %>
+    <div id="options" class="options options-pad">
+        <%
+        var signals = validSignals;
+        for (i = 0; i < signals.length; i++) {
+        %>
+        <p>
+            <a class="testClick" id="<%= signals[i].name  %>" href="javascript:void(0)">
+                <%= signals[i].displayName %>
+            </a>
+        </p>
+        <%  } %>
+    </div>
+    <%
+    } else if (getSelectionType() === "radio") { %>
+    <div id="options" class="options options-pad">
+        <%
+        var signals = validSignals, checked = "";
+        for (i = 0; i < signals.length; i++ ) {
+        checked = getCheckState(i);
+        %>
+        <input type="radio" name="answer" id="<%= signals[i].name  %>" value="<%= signals[i].name  %>" <%= checked %> />
+        <label for="<%= signals[i].name  %>" style="float: none;"><%= signals[i].displayName %></label>
+        <% } %>
+    </div>
+    <div id="buttons">
+        <button class="button" id="continueBtn"><%= getButton() %></button>
+    </div>
+    <%
+    } else if (getSelectionType() === "button") { %>
+    <div id="buttons">
+        <%
+        var signals = validSignals;
+        for (i = 0; i < signals.length; i++ ) {
+        %>
+        <button class="button" id="<%= signals[i].name  %>"><%= signals[i].displayName %></button>
+        <% } %>
+    </div>
+    <% } %>
+</div>

@@ -1,0 +1,128 @@
+<div id="wifi-optimization" class="wifi-optimization-mob">
+    <div class="well">
+        <%
+		var deviceData = getAccountData();	
+		var guestUserExceeded = "";
+        if (deviceData.length == 0) {
+        %>
+            <div class="alert no-devices-found">
+                <h3 class="bold uppercase">
+                <img class="warning-img" src="<%= i18n.get('warningImageUrl') %>" width="20" height="20">
+                <%= guestNoAccountText %>
+                </h3>
+            </div>
+        <% } else { %>
+         <div id="refreshButtnHolder">
+			<h2 class="title"><%= i18n.get('guestWiFiTroubleshootText') %></h2>
+			<img id="refresh_button" style="position: relative; cursor: pointer; margin-top: -5px;" src="apps/wifi/images/refresh.png" border="0" height="32" width="32" class="float-right" />
+		</div>
+        <% }
+        if (deviceData.length > guestsallowed) {
+        %>
+            <div class="alert alert-danger">
+                <h3 class="bold uppercase">
+                    <img class="warning-img" src="<%= i18n.get('warningImageUrl') %>" width="20" height="20">
+                    <%= guestUserExceededWarning %>
+                </h3>
+            </div>
+        <% }
+		var lastAccount = "no account";
+        var tableHeader = true;
+        for (idx = 0; idx < deviceData.length; idx++ ) {
+            if (lastAccount != "no account") {
+        %>
+        </table>
+        </div>
+        <% } %>		
+		<div id=<%= deviceData[idx].HostName %> >
+        <table border="0" width="100%" cellspacing="0" cellpadding="0" class="table-style table-striped">
+            <% if (lastAccount != deviceData[idx].HostName && tableHeader == true) { %>
+            <thead>
+            <tr>
+                <%
+				var headerClass = "";
+                var columns = accountheader.split(",");
+                for (i = 0; i < columns.length; i++) {
+                %>				
+                <th class="<%= headerClass %>"><%= columns[i] %></th>
+                <%
+                }
+                %>
+            </tr>
+            </thead>
+            <% }
+            lastAccount = deviceData[idx].HostName;
+            tableHeader = false;
+            %>
+            <tbody>
+            <tr>
+                <td width="25%" style="word-break: break-word;"><%= deviceData[idx].HostName %></td>
+                <%
+                    var HostName = deviceData[idx].HostName;
+                    var IPAddress = deviceData[idx].IPAddress;
+                    var MACAddress = deviceData[idx].MACAddress;
+                    var SignalStrength = deviceData[idx].signalStrength;
+					var refreshAdd = addIPAddress(IPAddress);
+                %>
+                <td width="20%" style="word-break: break-word;">
+                    <% if (deviceData[idx].status == "Online") { %>
+                    <span class="graycolor">
+                        <%= IPAddress %>
+                    </span>
+                    <% } else if (deviceData[idx].status == "Offline") { %>
+                    <span class="redcolor">
+                        <%= IPAddress %>
+                    </span>
+                    <% } %>
+                </td>
+				<td width="25%" style="word-break: break-word;">
+                    <% if (deviceData[idx].status == "Online") { %>
+                    <span class="graycolor">
+                        <%= MACAddress %>
+                    </span>
+                    <% } else if (deviceData[idx].status == "Offline") { %>
+                    <span class="redcolor">
+                        <%= MACAddress %>
+                    </span>
+                    <% } %>
+                </td>
+				<td width="17%" style="word-break: break-word;">
+                    <% if (deviceData[idx].status == "Online") { %>
+                        <!-- Online Status Icon -->
+                        <span class="statusimage">
+                            <img src="apps/wifi/images/online.png" border="0" title="<%= getStatusLabel(0) %>" />
+                        </span>
+					<% } else if (deviceData[idx].status == "Offline") { %>
+                        <!-- Offline Status Icon -->
+                        <span class="statusimage">
+                             <img src="apps/wifi/images/offline.png" border="0" title="<%= getStatusLabel(1) %>" />
+                        </span>
+					<% } %>
+                </td>
+                <td width="17%" style="word-break: break-word;">
+                    <% if ((deviceData[idx].signalStrength == "4") || (deviceData[idx].signalStrength == "3")) { %>
+                        <span class="statusimage">
+                            <img src="apps/wifi/images/goodstrength.png" border="0" />
+                        </span>
+                        <% } else if ((deviceData[idx].signalStrength == "2") || (deviceData[idx].signalStrength == "1")) { %>
+                        <span class="statusimage">
+                            <img src="apps/wifi/images/badstrength.png" border="0" />
+                        </span>
+                    <% } %>
+                </td>
+                <!--  Test Button
+                <td width="20%">
+                    <% var btnID = "test" + "_" + HostName + "_" + IPAddress + "_" + MACAddress + "_" + SignalStrength %>
+                    <button id="<%= btnID %>" class="optionbtn ssc-button ssc-button-es"><%= testbuttonlabel %></button>
+                </td>
+                -->
+		    </tr>
+        <% } %>
+        </tbody>
+    </table>
+   </div>
+   </div>
+</div>
+
+
+          

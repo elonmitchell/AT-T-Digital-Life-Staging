@@ -1,0 +1,48 @@
+<div id="workflow-prompt" class="workflow-content">
+    <div class="well">
+        <div class="message">
+            <%= getBody() %>
+        </div>
+    </div>
+    <div>
+        <% if(isMultiLine()) {
+            var defaultValue = "";
+            if (isDefault()) {
+                defaultValue = getDefault();
+            }
+        %>
+            <div class="multilineContainer">
+                <div class="prompt"><%= prompt %></div>
+                <label for="prompt"><%= getLabel() %></label>
+                <textarea id="prompt" class="multiLineInput form-control"><%= defaultValue %></textarea>
+            </div>
+        <%  } else if(isPassword()) {
+                var defaultValue = "";
+                if (isDefault()) {
+                    defaultValue = getDefault();
+                }
+            %>
+            <div class="promptContainer">
+                <div class="prompt"><%= prompt %></div>
+                <label for="prompt"><%= getLabel() %></label>
+                <input id="prompt" class="form-control" name="prompt" type="password" placeholder="<%= getLabel() %>" autocorrect="off" autocapitalize="off" autocomplete="off" value="<%= defaultValue %>" />
+                <div class="error" style="display: none;"><%= errormessage %></div>
+            </div>
+        <% } else {
+                var defaultValue = "";
+                if (isDefault()) {
+                    defaultValue = getDefault();
+                }
+            %>
+            <div class="promptContainer">
+                <div class="prompt"><%= prompt %></div>
+                <label for="prompt"><%= getLabel() %></label>
+                <input id="prompt" class="form-control" name="prompt" type="<%= getType() %>" placeholder="<%= getLabel() %>" autocorrect="off" autocapitalize="off" autocomplete="off" value="<%= defaultValue %>" />
+                <div class="error" style="display: none;"><%= errormessage %></div>
+            </div>
+        <% } %>
+    </div>
+    <div id="buttons">
+        <button class="button" id="button"><%= getButton() %></button>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<span id="operation-<%= name %>" class="operation-name">
+    <%= i18n.get(name + 'Text') %>
+</span>
+
+<span id="operation-<%= name %>-status" class="operation-status">
+    <img border="0" src="apps/internet/images/workflow_status_success_info.png" id="status-ok-<%= name %>" style="display:none; cursor:pointer;">
+    <img border="0" src="apps/internet/images/workflow_status_unknown_info.png" id="status-unknown-<%= name %>" style="display:none; cursor:pointer;">
+    <img border="0" src="apps/internet/images/circular_progress_mini.gif" id="status-updating-<%= name %>">
+    <img border="0" src="apps/internet/images/workflow_status_failure_info.png" id="status-fail-<%= name %>" style="display:none; cursor:pointer;">
+</span>
+
+<span id="operation-fix-gc-<%= name %>-button" class="operation-button" style="display:none">
+    <span id="fix-gc-<%= name %>"><%= i18n.get('fixNotSupportedText') %></span>
+</span>
+
+<span id="operation-fix-<%= name %>-button" class="operation-button" style="display:none">
+    <input type="button" id="fix-<%= name %>" class="ssc-module-button pchc-fix-button" value="<%= i18n.get('fixBtnTitle') %>" />
+</span>
+
+<span id="operation-retry-<%= name %>-button" class="operation-button-retry" style="display:none">
+    <input type="button" id="retry-<%= name %>" class="ssc-module-retry-button pchc-retry-button" value="<%= i18n.get('retryBtnTitle') %>" />
+</span>
+
+<div class="recCurPara" id="recCurPara-<%= name %>">
+    <p>
+        <span id="operation-curvalue-<%= name %>">
+            <%= i18n.get('curValueText') %>
+        </span>
+        <span id="operation-curvalue-updating-<%= name %>" class="operation-curvalue">
+            <img border="0" src="apps/internet/images/circular_progress_mini.gif" />
+        </span>
+        <span id="operation-curvalue-result-<%= name %>" style="display:none;">
+		</span>
+    </p>
+    <p>
+       <span id="operation-recvalue-<%= name %>">
+            <%= i18n.get('recValueText') %>
+       </span>
+       <span id="operation-recvalue-updating-<%= name %>"  class="operation-recvalue">
+            <img border="0" src="apps/internet/images/circular_progress_mini.gif" />
+        </span>
+       <span id="operation-recvalue-result-<%= name %>" style="display:none;">
+	   </span>
+    </p>
+</div>

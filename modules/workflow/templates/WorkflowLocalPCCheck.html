@@ -1,0 +1,149 @@
+<div id="localpccheck" class="content ui-hide-label">
+    <div class="progress-inner-content" id="waitContainer">
+        <div id="spinner"><p class="progressIndicatorMsg"><%= getBody() %></p></div>
+
+    </div>
+   <%
+		var strAppleScript = getAppleScript();
+
+        function getEndpointID(vendorId, setEndpointId, logError, logDebug) {
+            logDebug( "Getting endpoint ID" );
+            var strEndpointID = null;
+			if (-1 !== navigator.userAgent.toLowerCase().indexOf("macbrowser")) {
+				try {
+					var embedNode = document.createElement("embed");
+					embedNode.setAttribute("name",   "AppleScriptRunner");
+					embedNode.setAttribute("id",     "AppleScriptRunner");
+					embedNode.setAttribute("type",   "data/x-wnAppleScriptRunner");
+					document.body.appendChild(embedNode);
+					appleScriptPlugin = document.getElementById("AppleScriptRunner");
+
+					strAppleScript = strAppleScript.replace("$VendorID$", vendorId);
+					strAppleScript = strAppleScript.replace("$VendorID$", vendorId);
+					var strEndpointID = appleScriptPlugin.runAppleScript(strAppleScript);
+
+					logDebug("Endpoint from npMotiveWorkaround AppleScript = " + strEndpointID);
+					setEndpointId(strEndpointID);
+				} catch(e) {
+	                logDebug("exception while obtaining endpointId from AppleScript - " + e);
+				}
+			} else {
+				if (typeof(objectMAPublicConfiguration) === 'object' && typeof(objectMAPublicConfiguration.GetEPID) === 'unknown') {
+					try {
+						strEndpointID = objectMAPublicConfiguration.GetEPID(vendorId);
+						logDebug("GetEPID returned (" + strEndpointID + ")");
+					} catch(oErr) {
+						logError("Exception occurred - " + oErr);
+					}
+				} else {
+					try {
+						if (typeof(oNonSiteLockedPlugin) === 'object' || typeof(oNonSiteLockedPlugin) === 'function' ) {
+							logDebug("Using oNonSiteLockedPlugin");
+							strEndpointID = oNonSiteLockedPlugin.GetEPID(vendorId);
+						} else {
+							var oMacPlugin = document.getElementById("plugin");
+							if (oMacPlugin !== null && oMacPlugin !== undefined) {
+								logDebug("Using oMacPlugin");
+								strEndpointID = oMacPlugin.GetEPID(vendorId);
+							}
+						}
+					} catch(oErr) {
+						logError("Exception occurred - " + oErr);
+					}
+				}
+				logDebug("Endpoint from plugin = " + strEndpointID);
+				setEndpointId(strEndpointID);
+			}
+        };
+    %>
+    <%
+       try {
+            navigator.plugins.refresh(false);
+        } catch(err) {
+        }
+        if (document.all && !window.setTimeout.isPolyfill) {
+            var __nativeST__ = window.setTimeout;
+            window.setTimeout = function (vCallback, nDelay /*, argumentToPass1, argumentToPass2, etc. */) {
+                var aArgs = Array.prototype.slice.call(arguments, 2);
+                return __nativeST__(vCallback instanceof Function ? function () {
+                    vCallback.apply(null, aArgs);
+                } : vCallback, nDelay);
+            };
+            window.setTimeout.isPolyfill = true;
+        }
+
+        var agent = navigator.userAgent,
+            isIE = false;
+
+        if (agent.indexOf("Trident") !== -1) {
+            try {
+                logDebug("Checking min Mcci version");
+                var c = document.createElement('span'),
+                    minMcciLoaded = null,
+                    el;
+                c.innerHTML = '<object width="1" height="1" style="display:none;" codebase="#version=7,3,0,11" classid="clsid:A6FF3C3C-F33A-4269-9300-2682DB3B3441"></object>';
+                if (c.firstChild) {
+                    try {
+                        minMcciLoaded = c.firstChild["object"];
+                    } catch(ex) {
+                        logDebug("Failed to find minimum version of McciUtilsX - " + ex);
+                    }
+                }
+                if (minMcciLoaded != null) {
+                    logDebug("Min Mcci version is good");
+                    logDebug("Adding ActiveX plugin");
+                    el = document.createElement('object');
+                    el.setAttribute('id', 'objectMAPublicConfiguration');
+                    el.setAttribute('width', '0');
+                    el.setAttribute('height', '0');
+                    el.setAttribute('classid', 'clsid:978733A5-7B8D-45B3-8AF1-0AD6F067AEB0');
+                    document.getElementsByTagName('body')[0].appendChild(el);
+                    window.setTimeout(getEndpointID, 1000, getVendorId(), setEndpointId, logError, logDebug);
+                } else {
+                    logDebug("Min Mcci version is not met or no Mcci");
+                    c.innerHTML = "";
+                    c = null;
+                    setEndpointId("");
+                }
+            } catch (e) {
+                logDebug("Failed to instantiate ActiveX control - " + e);
+                setEndpointId("");
+            }
+        } else {
+			if (-1 != navigator.userAgent.toLowerCase().indexOf("macbrowser"))
+			{
+				window.setTimeout(getEndpointID, 250, getVendorId(), setEndpointId, logError, logDebug);
+			}
+			else {
+			var plugins = navigator.plugins,
+					found = false;
+				for (idx = 0; idx < plugins.length && !found; idx++) {
+					logDebug("Plugin name = " + plugins[idx].name);
+					if (plugins[idx].name === "Motive Plug-in" || plugins[idx].name === "npMotive") {
+						found = true;
+						logDebug("Plugin found");
+					}
+				}
+				if (found === false) {
+					setEndpointId("");
+				} else {
+					if (typeof(oNonSiteLockedPlugin) === 'object' || typeof(oNonSiteLockedPlugin) === 'function' ) {
+						logDebug("npMotive control is already available, not adding");
+						window.setTimeout(getEndpointID, 250, getVendorId(), setEndpointId, logError, logDebug);
+					} else {
+						logDebug("Adding npMotive plugin");
+						var e = document.createElement('object');
+						e.setAttribute('id', 'plugin');
+						e.setAttribute('name', 'plugin');
+						e.setAttribute('NonSiteLockedPluginID', 'oNonSiteLockedPlugin');
+						e.setAttribute('width', '0');
+						e.setAttribute('height', '0');
+						e.setAttribute('type', 'application/x-motive-scriptable-plugin');
+						document.getElementsByTagName('body')[0].appendChild(e);
+						window.setTimeout(getEndpointID, 1500, getVendorId(), setEndpointId, logError, logDebug);
+					}
+				}
+			}
+		}
+    %>
+</div>	<!-- /content -->

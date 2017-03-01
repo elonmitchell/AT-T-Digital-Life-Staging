@@ -1,0 +1,18 @@
+.primary-font{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+.hidden{display:none;}
+.block{display:block;}
+.inline-block{display:inline-block;}
+.inline{display:inline;}
+.table{display:table;}
+.table-cell{display:table-cell;}
+.float-left{float:left;}
+.float-right{float:right;}
+.clear{clear:both;}
+.clearfix{display:block;zoom:1;}.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.text-left{text-align:left;}
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.uppercase{text-transform:uppercase;}
+.bold{font-weight:bold;}
+.background-clip-padding{-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;}
+.pointer{cursor:pointer;}

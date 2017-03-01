@@ -1,0 +1,9 @@
+<div class="workflow-header">
+    <h1 class="workflow-title"><%= getHeader() %></h1>
+    <% if (showSuspendButton()) { %>
+        <p class="suspend-button-container">
+            <button id="suspend" class="button"><%= i18n.get('suspend') %></button>
+        </p>
+    <% } %>
+</div>
+<div id="dialog-confirm" title="<%= i18n.get('suspendDialogTitle') %>" style="display:none; height: auto;"> <%= i18n.get('suspendContentText') %></div>

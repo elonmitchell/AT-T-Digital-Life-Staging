@@ -1,0 +1,48 @@
+    <%
+    if (getEmailList() !== "") {
+    %>
+        <h1>SELECT EMAIL</h1>
+    <% } else { %>
+        <h1></h1>
+    <% } %>
+<div class="well wifi-monitor">
+    <%
+    if (getEmailList() !== "") {
+    var emailids = getEmailList();
+    %>	
+    <h2 class="bold">SELECT EMAIL ADDRESS</h2>
+    <p>The following email profiles available for immediate setup.</p>
+    <table class="table-style table-striped">
+        <thead>
+        <tr>
+            <th>Email Profiles</th>            
+        </tr>
+        </thead>
+        <tbody>
+       	<%
+		for (i = 0; i < emailids.length; i = i + 1) {
+        %>
+        <tr class="proceedFlow">
+            <%
+            var emailId = emailids[i].EmailId;
+            var emailPassword = emailids[i].Password;
+            var btnID = "proceed" + "_" + emailId + "_" + emailPassword;
+            %>
+            <td id="<%= btnID %>"><%= emailids[i].EmailId %></td>            
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+	<p style="text-align: center;">
+		<button class="button btn btn-inline" id="skip" style="margin-top: 10px;"><%= i18n.get('cancelBtn') %></button>
+	</p>
+    <% } else { %>
+    <h2 class="bold"><%= i18n.get('nowifiNetworkPageHeader') %></h2>
+    <p>
+        <%= i18n.get('nowifiNetworksubHeader') %>
+    </p>
+	<p style="text-align: center;">
+		<button class="button btn btn-inline" id="finish" style="margin-top: 10px;"><%= i18n.get('finishBtn') %></button>
+	</p>
+    <% } %>
+</div>

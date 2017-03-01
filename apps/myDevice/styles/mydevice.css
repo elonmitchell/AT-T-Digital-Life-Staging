@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2013 Motive, Inc.
+ * All rights reserved.
+ *
+ * Motive, Inc. Proprietary/Trade Secret ; Information
+ * Not to be disclosed or used except in accordance with applicable agreements.
+ */
+.orgtext {
+    color: #C88039 !important;
+}
+.floatLeft {
+    float: left;
+}
+.boldtext {
+    color: #333333 !important;
+    font-size: 17px;
+    margin: 20px 0 20px 10px !important;
+}
+.guserheadline {
+    color: #666666;
+    float: right;
+    font-size: 17px;
+    margin-right: 0;
+    text-transform: uppercase;
+}
+.ssc-gbutton {
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+    margin-top: -7px;
+}
+.account-guest-box {
+    margin: 20px 20px 30px;
+}
+.gimageHolder {
+    clear: both;
+    padding-top: 10px;
+    text-align: center;
+}

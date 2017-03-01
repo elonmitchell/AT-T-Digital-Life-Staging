@@ -1,0 +1,14 @@
+<% var iconClass = "nav-item-icon" %>
+<% if (hasParent()) { iconClass = "blank-icon"; } %>
+<![if gte IE 9]>
+<span class="<%= iconClass %>"
+<% if (!hasParent()) { %> style="background-image: url('<%= imageUrl() %>');" <% } %>>
+</span>
+<![endif]>
+<!--[if lt IE 9]>
+<span class="<%= iconClass %>"
+<% if (!hasParent()) { %> style="background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= imageUrl() %>',sizingMethod='scale');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= imageUrl() %>',sizingMethod='scale');" <% } %>>
+</span>
+<![endif]-->
+<span class="nav-item-label"><%= i18n.get(name+"Text", name) %></span>
+<span class="lock-icon"></span>

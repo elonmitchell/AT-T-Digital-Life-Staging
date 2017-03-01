@@ -1,0 +1,38 @@
+<div class="toplevel-region">
+    <% if (!isCSRMode()) { %>
+	<!-- Menu -->
+	<div data-side-nav="nav" class="nav-region">
+		<div class="nav">
+			<div class="nav-header">
+				<div class="container">
+					<% if (isOffline() === false && isAnonymous() === false) { %>
+					<button class="logout"><%= i18n.get('navLogoutBtn') %></button>
+					<% } %>
+					<% if (isOffline() === true) { %>
+					<div><button class="button logoutTxt"><%= i18n.get('connectBtn') %></button></div>
+					<% } %>
+				</div>				
+			</div>
+            <div class="alerts-region"></div>
+            <div class="suspended-flows-region"></div>
+			<div class="nav-items-region real"></div>
+		</div>
+	</div>
+    <% } %>
+	<!-- Page -->
+	<div data-side-nav="app" class="page-region">
+		<div class="page-component">
+
+			<!-- Header region -->
+			<div class="header"></div>
+
+			<!-- Main page content -->
+			<div data-side-nav="content" class="content-wrapper">
+				<div class="content-region"></div>
+			</div>
+		</div>
+	</div>
+    <div id="dialog-session-timeout" title="<%= i18n.get('sessionTimeoutDialogTitle') %>" style="display:none">
+        <%= i18n.get('sessionTimeoutContentText') %>
+    </div>
+</div>

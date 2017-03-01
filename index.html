@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2013 Motive, Inc.
+ All rights reserved.
+
+ Motive, Inc. Proprietary/Trade Secret ; Information
+ Not to be disclosed or used except in accordance with applicable agreements.
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"/>
+
+    <title>MOTIVE-Self Service Console</title>
+
+    <!-- determine the language -->
+    <script type="text/javascript">
+       var lang = undefined;
+        try {
+            var re = /lang=([a-z]{2}(-[a-z]{2})?)/i;
+            var match = re.exec(window.location.search);
+            if (match && match.length > 1 && match[1]) {
+                lang = match[1];
+            }
+        } catch (e) {
+            lang = undefined;
+        }
+    </script>
+
+    <!--[if lt IE 8]>
+    <script type="text/javascript">
+        window.location = ((lang && lang.indexOf('fr') == 0) ? "unsupported-fr.html" : "unsupported.html");
+    </script>
+    <![endif]-->
+
+    <!-- XMLHttpRequest support check -->
+    <script type="text/javascript">
+       if (window.XMLHttpRequest) {
+            try {
+                var xmlHttpReq = new XMLHttpRequest();
+                xmlHttpReq = null;
+            } catch (ex) {
+                window.location = ((lang && lang.indexOf('fr') == 0) ? "xmlHttpRequestDisabled-fr.html" : "xmlHttpRequestDisabled.html");
+            }
+        } else {
+            window.location = ((lang && lang.indexOf('fr') == 0) ? "xmlHttpRequestDisabled-fr.html" : "xmlHttpRequestDisabled.html");
+        }
+
+        setTimeout(function () {
+            document.getElementsByClassName("loadingDiv")[0].style.display = "inline";
+        }, 6000);
+    </script>
+
+    <style type="text/css">
+        html,
+        body,
+        #ssc-mainContainer,
+        #ssc-content {
+            height: 100%;
+            margin: 0px;
+        }
+        #ssc-content > div {
+            background-color:#eee;
+            width: 100%;
+            height: 100%;
+        }
+        .indexOuterDiv {
+            -webkit-transition: opacity 650ms;
+            opacity: 1;
+            display: block;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .indexDiv {
+            background: url("images/motive_logo_195x60.png") no-repeat 50% 50%;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+        .loadingDiv {
+            color:#4C4646;
+            display:none;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:20px;
+        }
+    </style>
+
+    <!-- Require components-->
+    <script data-main="config" src="libs/require.js"></script>
+    <script>
+    if (lang) {
+        require.config({
+            //Set the config for the i18n
+            //module ID
+            locale: lang
+        });
+    }
+    </script>
+</head>
+<!--[if lt IE 9]>
+<body class=ie>
+<![endif]-->
+<![if gte IE 9]>
+<body>
+<![endif]>
+    <div id="ssc-mainContainer">
+        <!-- <div id="ssc-header"></div> -->
+        <div id="ssc-content"><div class="indexOuterDiv"><div class="indexDiv"><div class="loadingDiv"><marquee direction="left" scrolldelay="280">Loading...</marquee></div></div></div></div></div>
+        <!-- <div id="ssc-footer"></div> -->
+    </div>
+</body>
+</html>
+

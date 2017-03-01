@@ -1,0 +1,50 @@
+<div id="workflow-info" class="workflow-content">
+    <!-- Show Status -->
+    <%
+    var messageClass = "messagebox";
+    if (getMessageType() !== "")
+    messageClass = getMessageType() + "box";
+    %>
+    <div class="well <%= messageClass %>">
+        <% if (getImage() !== "") { %>
+        <img class="message-icon" src="<%= getImage() %>">
+        <% } %>
+        <div class="message" style="word-break: break-all; width: 100%; padding: 5px;">
+            <% if (getHeadline() !== '') { %>
+            <strong><%= getHeadline() %></strong>
+            <div class="blank-separator"></div>
+            <% } %>
+            <%= getBody() %>
+        </div>
+        <%
+        if (getSteps().length > 0) {
+        %>
+        <div class="stepsWindow">
+            <%
+            var steps = getSteps();
+            for( i=0; i < steps.length; i++ ) {
+            %>
+            <div class="description">
+                <div class="stepName"><%= steps[i].name %></div>
+                <div class="stepMessage">
+                    <%= steps[i].message %>
+                </div>
+            </div>
+            <%
+            }
+            %>
+        </div>
+        <%
+        }
+        %>
+    </div>
+    <%
+    if (button) {
+    %>
+    <div id="buttons">
+        <button class="button" id="button"><%= button %></button>
+    </div>
+    <%
+    }
+    %>
+</div>

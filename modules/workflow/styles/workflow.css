@@ -1,0 +1,51 @@
+.primary-font{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+.hidden{display:none;}
+.block{display:block;}
+.inline-block{display:inline-block;}
+.inline{display:inline;}
+.table{display:table;}
+.table-cell{display:table-cell;}
+.float-left{float:left;}
+.float-right{float:right;}
+.clear{clear:both;}
+.clearfix{display:block;zoom:1;}.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.text-left{text-align:left;}
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.uppercase{text-transform:uppercase;}
+.bold{font-weight:bold;}
+.background-clip-padding{-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;}
+.pointer{cursor:pointer;}
+.workflow-content .description{clear:both;padding-left:30px;}
+.workflow-content .stepsWindow{clear:both;background-color:#f6f6f6;border:1px solid #e5e5e5;height:auto;margin:10px 0 0 0;padding:10px;overflow-y:auto;}.workflow-content .stepsWindow.swipe-adjust{padding:10px 0;}
+.workflow-content .stepsWindow .description{height:auto;margin-bottom:15px;overflow:hidden;padding-left:0;}
+.workflow-content .stepsWindow .stepName{float:left;text-align:center;background:url(modules/workflow/images/stepNumberBg.png) no-repeat scroll 0 0 transparent;color:#fff;font-size:20px;font-weight:bold;height:35px;margin-right:10px;padding:8px 0 0 0;width:40px;}
+.workflow-content .stepsWindow .stepMessage{display:table-cell;color:#666;float:none;font-size:14px;height:auto;padding-top:0;vertical-align:top;width:auto;}
+.workflow-content .message-icon{float:left;display:inline-block;margin-right:10px;}
+.workflow-content .message{display:table-cell;color:#666;font-size:16px;line-height:24px;width:auto;vertical-align:middle;}
+.workflow-content .step_message{float:left;font-size:14px;height:auto;padding:5px 0 0;width:550px;}
+.workflow-content .button{-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;cursor:pointer;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;border:none;font-size:15px;height:32px;margin:0 5px 20px 5px;min-width:120px;padding:1px .5em;}.workflow-content .button.button-small{min-width:80px;}
+.workflow-content .button.extended{height:auto;padding:5px 2em;}.workflow-content .button.extended .subtext{display:block;font-size:.8em;margin-top:.5em;}
+.workflow-content .buttons-container{text-align:center;}.workflow-content .buttons-container .button{min-width:210px;}
+.workflow-content #buttons{text-align:center;float:none;margin:10px auto 0 auto;width:100%;}
+.workflow-content .error{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;background:url(modules/workflow/images/error_24x24.png) no-repeat scroll 8px 6px #cd1111;border:1px solid #CC0000;clear:left;color:#FFFFFF;font-size:14px;height:auto;margin:15px 0;padding-bottom:5px;padding-left:40px !important;padding-top:5px !important;width:100%;}
+.workflow-content .error-content{margin-bottom:0;}
+.workflow-content .options{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin-left:0;margin-top:24px;padding:0 20px;width:100%;}.workflow-content .options.options-pad{padding:0 20px;}
+.workflow-content .options input[type=radio],.workflow-content .options input[type=checkbox]{float:left;margin:4px 16px 16px 0;}
+.workflow-content .options label{display:block;float:left;color:#666;font-size:16px;font-weight:normal;height:40px;line-height:24px;margin-right:20px;}
+.workflow-content .options p{display:block;background-color:#fff;border:1px solid #ccc;line-height:36px;margin:0 0 10px 0;padding:2px 16px 4px 16px;}.workflow-content .options p a{display:block;background:url(images/forward.png) no-repeat scroll right 12px #ffffff;color:#666;font-size:16px;font-weight:normal;text-decoration:none;}.workflow-content .options p a:hover{text-decoration:underline;}
+#workflow-progress{display:block;clear:both;text-align:center;text-transform:uppercase;color:#666;font-size:15px;font-weight:normal;padding-top:0;}#workflow-progress .progress-inner-content{height:250px;margin:0 auto;padding:0;position:relative;width:300px;}#workflow-progress .progress-inner-content .spinner{position:absolute;top:50%;left:50%;}
+#workflow-progress .progress-inner-content .progressIndicatorMsg{text-align:center;text-transform:uppercase;color:#666;padding-top:215px;width:100%;}#workflow-progress .progress-inner-content .progressIndicatorMsg p{color:#666;font-size:1.2em;}#workflow-progress .progress-inner-content .progressIndicatorMsg p:first-child{text-transform:uppercase;margin-bottom:5px;}
+#workflow-prompt{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;}#workflow-prompt .prompt{float:left;clear:left;color:#666;font-size:16px;font-weight:normal;line-height:40px;margin-left:0;margin-right:15px;}
+#workflow-prompt .multiLineInput{height:76px;width:100%;}
+#workflow-prompt .promptContainer,#workflow-prompt .multilineContainer{margin-left:0;margin-top:10px;padding:0 20px;}
+#workflow-menu{overflow:hidden;}#workflow-menu .menu .icon{display:block;text-align:center;color:#666;font-size:16px;margin:0 auto;padding:98px 0 0 0;text-decoration:none;width:100%;}#workflow-menu .menu .icon:hover{color:#369;text-decoration:none;}
+#workflow-menu .menu .primary-area{display:block;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;clear:both;margin:10px auto 0 0;width:100%;}#workflow-menu .menu .primary-area .menu-box{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;display:inline-block;list-style:none;height:100% !important;width:33%;}#workflow-menu .menu .primary-area .menu-box .item{display:block;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;text-align:center;background:#fff;border:1px solid #ddd;margin:5px;padding:10px;height:100% !important;text-decoration:none;vertical-align:top;}#workflow-menu .menu .primary-area .menu-box .item:hover{border:1px solid #aaa;}
+#workflow-menu .menu .primary-area .menu-box .item-icon{height:auto;max-width:80px;width:100%;}
+#workflow-menu .menu .primary-area .menu-box .title{text-transform:uppercase;color:#666;text-decoration:none;}
+.breadCrumbHolder{margin:0 0 20px 0;}.breadCrumbHolder .breadCrumb{width:730px;}.breadCrumbHolder .breadCrumb a{cursor:pointer;color:#fff;font-size:inherit;font-weight:inherit;text-decoration:none;}.breadCrumbHolder .breadCrumb a:hover{text-decoration:underline;}
+.breadCrumbHolder .breadCrumb ul,.breadCrumbHolder .breadCrumb ol{padding-left:10px;}.breadCrumbHolder .breadCrumb ul li,.breadCrumbHolder .breadCrumb ol li{line-height:1.5em;}
+.breadCrumbHolder .breadCrumb ul{list-style-type:disc;}
+.breadCrumbHolder .breadCrumb ol{list-style-type:decimal;}
+#suspend.button{float:right;position:relative;top:-40px;}
+@media screen and (max-width:980px){#workflow-prompt .well button{width:auto;padding:0.4em 15px;}}@media screen and (min-width:769px){#workflow-prompt .promptContainer .form-control,#workflow-selector .options .form-control{max-width:350px;}}@media screen and (max-width:768px){.suspend-button-container{padding:0px 0px 10px 0px;} #suspend.button{float:none;top:0px;}}@media screen and (max-width:480px){.breadCrumbHolder{margin:0;} #workflow-header .workflow-title{background-color:#fff;border-bottom:1px solid #ccc;text-align:center;font-size:1em;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1);}#workflow-header .workflow-title p{padding:5px 0px;} .suspend-button-container{padding:0px 20px 10px 20px;} #suspend.button{display:block;width:100%;}}

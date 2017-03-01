@@ -1,0 +1,153 @@
+<div id="emailsummary" class="content ui-hide-label">
+
+    <p class="ssc-email-infomessage">
+        <%= closeMailClientsFixText %>
+    </p>
+
+    <!-- Handle SummaryOnly Display -->
+    <% if (summary == true) { %>
+        <p style="text-align:right;"><img src="apps/email/images/email_add.png" border="0" />&nbsp;<a href='#addaccount' class="addaccount"><%= addaccountlabel %></a></p>
+        <% var accountItem = accountdata.split(";") %>
+        <p class="emailaddr"><b><%= accountItem[0] %></b></p>
+        <div id=<%= accountItem[0] %> >
+            <table border="0" id="emailSetupDisplay">
+                <thead>
+                    <tr>
+                    <%
+                        var columns = accountheader.split(",");
+                        for (i = 0; i < columns.length; i++) {
+                    %>
+                        <th scope="col"><%= columns[i] %></th>
+                    <%
+                        }
+                    %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    var clients = accountItem[2].split(",");
+                    for (idx = 0; idx < clients.length; idx++) {
+                    %>
+                    <tr>
+                        <td>
+                            <% if (accountItem[4] == "Yes") { %>
+                                <span style="float:left;"><img src="apps/email/images/hv_default_email_account.png" border="0" />&nbsp;</span>
+                            <% } %>
+                            <%= accountItem[1] %>
+                        </td>
+                        <td>
+                            <%= clients[idx] %>
+                        </td>
+                        <td>
+                            <% if (accountItem[3] == "1") { %>
+                                <!-- Good Status Icon -->
+                                <img src="apps/email/images/hv_good.gif" border="0" />
+                                <font color="#008000"><%= getStatusLabel(0) %></font>
+                            <% } else if (accountItem[3] == "2") { %>
+                                <!-- Bad Status Icon -->
+                                <img src="apps/email/images/hv_bad.png" border="0" />
+                                <font color="#FF0000"><%= getStatusLabel(1) %></font>
+                            <% } else if (accountItem[3] == "3") { %>
+                                <!-- Skipped Update Status Icon -->
+                                <img src="apps/email/images/hv_bad.png" border="0" />
+                                <font color="#FF0000"><%= getStatusLabel(2) %></font>
+                            <% } %>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <p>
+                <span style="float:left;"><img src="apps/email/images/hv_default_email_account.png" border="0" />&nbsp;</span>
+                <%= defaultaccountlabel %>
+            </p>
+        </div>
+    <% } else { %>
+        <!-- Email troubleshooting Display -->
+        <%
+        var lastAccount = "no account";
+        for (idx = 0; idx < accountdata.length; idx++ ) {
+            if (lastAccount != "no account") {
+        %>
+                </table>
+                </div>
+            <% }
+
+            if (lastAccount != accountdata[idx].emailAddress) {
+            %>
+                <p class="emailaddr"><b><%= accountdata[idx].emailAddress %></b></p>
+            <% } %>
+            <div id=<%= accountdata[idx].emailAddress %> >
+                <table border="0" id="emailRepairDisplay">
+                    <% if (lastAccount != accountdata[idx].emailAddress) { %>
+                        <tr>
+                            <%
+                            var columns = accountheader.split(",");
+                            for (i = 0; i < columns.length; i++) {
+                            %>
+                            <th scope="col"><%= columns[i] %></th>
+                            <%
+                            }
+                            %>
+                        </tr>
+                    <% }
+                    lastAccount = accountdata[idx].emailAddress;
+                    %>
+                    <tr>
+                        <td>
+                            <p>
+                                <% if (accountdata[idx].isDefault == "Yes") { %>
+                                <img style="padding-left: 5px;" src="apps/email/images/hv_default_email_account.png" border="0" />&nbsp;
+                                <% } %>
+                                <%= accountdata[idx].displayName %>
+                            </p>
+                        </td>
+                        <%
+                            var emailClient = accountdata[idx].clientName;
+                            var accountName = accountdata[idx].accountName;
+                            var identityName = accountdata[idx].identityName;
+                            var displayName = accountdata[idx].displayName;
+                        %>
+                        <td><%= emailClient %></td>
+                        <td>
+                            <% if (accountdata[idx].status == "1") { %>
+                                <!-- Good Status Icon -->
+                                <img src="apps/email/images/hv_good.gif" border="0" />
+                                <font color="#008000"><%= getStatusLabel(0) %></font>
+                                </td>
+                                <!-- Test button-->
+                                <td width="25%">
+                                    <% var btnID = "test" + "_" + accountName + "_" + emailClient + "_" + lastAccount + "_" + identityName + "_" + displayName; %>
+                                    <button id="<%= btnID %>" class="optionbtn ssc-button ssc-button-es ssc-button-email"><%= testbuttonlabel %></button>
+                                    <% var btnID2 = "setDefault" + "_"  + accountName + "_" + emailClient + "_" + lastAccount + "_" + identityName + "_" + displayName;
+                                        if (accountdata[idx].isDefault == "Yes") {
+                                    %>
+                                        <button id="<%= btnID2 %>" class="setdefaultbtn ssc-button ssc-button-es ssc-button-email ssc-button-disabled" disabled="disabled"><%= setdefaultbuttonlabel %></button>
+                                    <% } else { %>
+                                        <button id="<%= btnID2 %>" class="setdefaultbtn ssc-button ssc-button-es ssc-button-email"><%= setdefaultbuttonlabel %></button>
+                                    <% } %>
+                                </td>
+                            <% } else if (accountdata[idx].status == "2") { %>
+                                <!-- Bad Status Icon -->
+                                <img src="apps/email/images/hv_bad.png" border="0" />
+                                <font color="#FF0000"><%= getStatusLabel(1) %></font>
+                                <!-- Fix button-->
+                                <td width="25%">
+                                    <%
+                                        addFixAccount(accountName + "," + emailClient + "," + lastAccount + "," + identityName + "," + displayName + ";");
+                                        var btnID3 = "fix" + "_" + accountName + "_" + emailClient + "_" + lastAccount + "_" + identityName + "_" + displayName;
+                                    %>
+                                    <button id="<%= btnID3 %>" class="optionbtn ssc-button ssc-button-es ssc-button-email"><%= fixbuttonlabel %></button>
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+            <% if (getNumFixAccounts() > 1) { %>
+                <p id="btnbar">
+                    <button id="fix_all_button" class="ssc-button ssc-button-es ssc-button-email"><%= fixallbuttonlabel %></button>
+                </p>
+            <% }  %>
+    <% } %>
+</div>

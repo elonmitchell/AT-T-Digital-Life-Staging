@@ -1,0 +1,270 @@
+/*
+ * Copyright (c) 2013 Motive, Inc.
+ * All rights reserved.
+ *
+ * Motive, Inc. Proprietary/Trade Secret ; Information
+ * Not to be disclosed or used except in accordance with applicable agreements.
+ */
+/***************************
+***** INTERNET APP STYLES
+****************************/
+.operationlist {
+    background: none repeat scroll 0 0 #FFFFFF;
+    list-style: none outside none;
+    margin: 0 0 0 20px;
+    width: 33%;
+}
+.service-name {
+    background: none repeat scroll 0 0 #999;
+    border-radius: 5px 5px 0 0;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 5px 0 5px 10px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.add-service-name {
+    background: none repeat scroll 0 0 #999;
+    border-radius: 5px 5px 0 0;
+    color: #FFFFFF;
+    margin: 20px 0 0 0;
+    padding: 5px 0 5px 10px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.module {
+    float: left;
+    margin-left: 15px;
+    margin-right: 2px;
+    width: 30%;
+}
+.ssc-add-module-button {
+    background: none repeat scroll 0 0 #586AD0 !important;
+    border: 1px solid #336699;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px #CCCCCC;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: 13px trebuchet ms;
+    height: 20px;
+    margin-right: -75px;
+    margin-top: 0;
+    min-width: 43px;
+    padding: 0 0.5em;
+    text-transform: uppercase;
+}
+.ssc-module-button {
+    background: none repeat scroll 0 0 #586AD0 !important;
+    border: 1px solid #336699;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px #CCCCCC;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font: 13px trebuchet ms;
+    height: 20px;
+    margin-right: -75px;
+    margin-top: 0;
+    min-width: 43px;
+    padding: 0 0.5em;
+    text-transform: uppercase;
+}
+.ssc-module-fixall-button {
+    background: none repeat scroll 0 0 #586AD0 !important;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px #336699;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font: 13px trebuchet ms;
+    height: 20px;
+    margin-right: 6px;
+    margin-top: 2px;
+    min-width: 43px;
+    padding: 0 0.5em;
+    text-transform: uppercase;
+}
+.ssc-module-retry-button {
+    background: none repeat scroll 0 0 #586AD0;
+    border: 1px solid #336699;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 1px 1px #CCCCCC;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font: 13px trebuchet ms;
+    height: 20px;
+    margin-right: -94px;
+    margin-top: -1px;
+    min-width: 43px;
+    padding: 0 0.5em;
+    text-transform: uppercase;
+}
+.operationlist {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-radius: 0 0 5px 5px;
+    border-right: 1px solid #DDDDDD;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    list-style: none outside none;
+    margin: 0;
+    width: 104%;
+}
+.operationlist > li {
+    border-bottom: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 0 13px 0;
+    text-transform: capitalize;
+}
+.operationlist > li:last-child {
+    border-bottom: none;
+}
+.additonalOperationlist {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-radius: 0 0 5px 5px;
+    border-right: 1px solid #DDDDDD;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    list-style: none outside none;
+    margin: 0;
+    width: 104%;
+}
+.additonalOperationlist > li {
+    border-bottom: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 0 13px 0;
+    text-transform: capitalize;
+}
+.additonalOperationlist > li:last-child {
+    border-bottom: none;
+}
+.domainDetailTop .headline {
+    clear: both;
+    color: #666666;
+    font-size: 22px;
+    margin: 30px 7px;
+    text-transform: uppercase;
+}
+.operation-status {
+    float: right;
+    margin-right: 62px;
+    margin-top: -7px;
+}
+.operation-add-status {
+    float: right;
+    margin-right: 0px;
+    margin-top: -2px;
+}
+.pchc-refresh-button {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.service-header {
+    background: none repeat scroll 0 0 #615DB0;
+    border: 2px solid #BFBCDD;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin: 0 0 5px;
+    padding: 8px;
+    text-transform: uppercase;
+    width: 96%;
+}
+#internet > ul {
+    display: none;
+}
+/***************************
+* Dialog Styles
+***************************/
+#statusHeadline {
+    background: url(apps/internet/images/info.png) no-repeat scroll 15px 3px transparent !important;
+    border: 0 none;
+    clear: both;
+    color: #666666;
+    font-weight: bold;
+    overflow: auto;
+    padding: 10px 1em 10px 52px;
+    position: relative;
+    text-transform: capitalize;
+}
+#dialog-status-detail p {
+    line-height: 18px;
+    margin: 0;
+}
+.ui-dialog-titlebar-close .ui-icon:after {
+    border-color: transparent !important;
+}
+.ui-dialog .ui-dialog-titlebar-plain {
+    background: none repeat scroll 0 0 transparent !important;
+}
+#dialog-status-detail {
+    margin-top: -25px;
+	border: 0;
+}
+#statusText {
+    padding: 2px 5px 0 15px;
+}
+#dialog-status-detail {
+    min-height: 96px !important;
+}
+.operationlist li span img {
+    opacity: 1;
+}
+.operationlist li span img:hover {
+    opacity: 0.8;
+}
+#service-list {
+    margin-top: 20px;
+}
+#fix-gc-history, #fix-gc-checkcache, #fix-gc-browsersecurity {
+    color: #CC0000;
+    font-size: 11px;
+    clear: both;
+    width: 100% !important;
+    float: left;
+    margin-top: -10px;
+}
+#service-list img {
+    display: inline;
+}
+.recCurPara {
+    font-size: 13px;
+}
+.recCurPara span {
+    display: inline;
+}
+.recCurPara span.operation-curvalue img {
+    float: right;
+    margin-right: 61px;
+    margin-bottom: 2px;
+}
+.recCurPara span.operation-recvalue img {
+    float: right;
+    margin-right: -25px;
+    margin-top: 5px;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+    background: none repeat scroll 0 0 #586AD0 !important;
+    border: 1px solid #336699;
+    color: #FFFFFF;
+    position: absolute;
+    right: 8px;
+    text-align: right;
+    top: 7px;
+    z-index: 100;
+	cursor: pointer;
+}
+.ui-dialog {
+    background: none repeat scroll 0 0 #FFFFDE !important;
+    border: 2px solid #FFCF0F !important;
+    padding: 0 0 0.2em;
+}
+#module-network, #module-connectivity {
+	display: none !important;
+}

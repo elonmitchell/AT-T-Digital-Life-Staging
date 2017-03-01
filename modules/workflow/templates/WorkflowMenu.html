@@ -1,0 +1,25 @@
+<div id="workflow-menu" class="workflow-content">
+    <div class="well">
+        <span class="message"><%= getBody() %></span>
+    </div>
+    <div class="menu">
+        <ul class="primary-area">
+            <%
+            var signals = getSignals();
+            for (i = 0; i < signals.length; i++) {
+            var img = "modules/workflow/images/" + signals[i].name.toLowerCase().replace(" ", "_") + ".png";
+            %>
+            <li class="menu-box">
+                <a id="<%= signals[i].name %>" class="item" href="<%= signals[i].name %>">
+                    <img class="item-icon" src="<%= img %>">
+                    <div class="title">
+                        <%= signals[i].displayName %>
+                    </div>
+                </a>
+            </li>
+            <%
+            }
+            %>
+        </ul>
+    </div>
+</div>

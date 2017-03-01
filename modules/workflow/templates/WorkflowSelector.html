@@ -1,0 +1,44 @@
+<div id="workflow-selector" class="workflow-content">
+    <div class="well">
+        <span class="message"><%= getBody() %></span>
+    </div>
+    <% if (getSelectionType() === "dropdown") { %>
+        <div class="options form-group">
+            <label for="selection"><%= getLabel() %></label>
+            <select id="selection" class="form-control">
+                <%
+                var aItems = availableItems.split(",");
+                var dItems = displayItems.split(",");
+                for (i = 0; i < aItems.length; i++) {
+                %>
+                <option value="<%= aItems[i] %>"><%= dItems[i] %></option>
+                <%
+                }
+                %>
+            </select>
+        </div>
+    <% } else { %>
+        <div class="options">
+            <%
+            var aItems = availableItems.split(",");
+            var dItems = displayItems.split(",");
+            var multiple = (getSelectionType() === "multiple");
+
+            for (i = 0; i < aItems.length; i++ ) {
+            if (multiple === true) {
+            %>
+            <input type="checkbox" id="<%= aItems[i] %>" name="<%= aItems[i] %>" value="<%= aItems[i] %>"/>
+            <label for="<%= aItems[i] %>" style="float: none;"><%= dItems[i] %></label>
+            <%  } else { %>
+            <input type="radio" id="<%= selectedItemsVar %><%= i %>" name="<%= selectedItemsVar %>" value="<%= aItems[i] %>"/>
+            <label for="<%= selectedItemsVar %><%= i %>" style="float: none;"><%= dItems[i] %></label>
+            <%  }
+            }
+            %>
+        </div>
+    <% } %>
+    <div class="error" style="display:none; height: auto;"><%= errormessage %></div>
+    <div id="buttons">
+        <button class="button" id="button"><%= getButton() %></button>
+    </div>
+</div>

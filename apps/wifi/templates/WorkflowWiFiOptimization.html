@@ -1,0 +1,211 @@
+    <% if (devicemode === "mobile") { %>
+        <div id="wifi-optimization" class="wifi-optimization-mob">
+    <% } else { %>
+        <div id="wifi-optimization">
+    <% } %>
+
+    <div class="well">
+        <% var deviceData = getAccountData(); %>
+        <% if (deviceData.length === 0) { %>
+        <div class="alert no-devices-found">
+            <%= guestNoAccountText %>
+        </div>
+        <% } else { %>
+        <% if (devicemode === "mobile") { %>
+        <% var getDeviceSummary = getDeviceSummary(); %>
+        <div id="refreshBtnHolder">
+			<img id="refresh-btn" style="position: relative; cursor: pointer;" src="apps/wifi/images/refresh.png" border="0" height="32" width="32" class="float-right" />
+		</div>
+        <a class="showSummary_btn block-link-large">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr valign="middle">
+                    <td rowspan="4"><img src="apps/wifi/images/wifiIcon.png" border="0" height="32" width="32" />&nbsp;<%= getAccountDataLength() %><%= i18n.get('devicesSummaryTitle') %></td>
+                    <td><div class="signal levelMobile-1"></div></td>
+                    <td><span id="level1"><%= getDeviceSummary['badSignal'] %></span></td>
+                </tr>
+                <tr valign="middle">
+                    <td><div class="signal level-2"></div></td>
+                    <td><span id="level2"><%= getDeviceSummary['redSignal'] %></span></td>
+                </tr>
+                <tr valign="middle">
+                    <td><div class="signal level-3"></div></td>
+                    <td><span id="level3"><%= getDeviceSummary['orangeSignal'] %></span></td>
+                </tr>
+                <tr valign="middle">
+                    <td><div class="signal level-4"></div></td>
+                    <td><span id="level4"><%= getDeviceSummary['greenSignal'] %></span></td>
+                </tr>
+            </table>
+        </a>
+        <div id="tableSummaryMobile" style="display: none;">
+			<div id="backToRecommend" class="floatLeft">
+				<a id="showRecom_btn">
+					<%= i18n.get('backButton') %>
+				</a>
+            </div>
+            <h2 class="title">
+				<%= i18n.get('devicesTitle') %>
+			</h2>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="table-style table-striped">
+                <% if (accountheader) { %>
+                <thead>
+                <tr>
+                    <% var columnHeaders = accountheader.split(","); %>
+                    <% var headerClass = ""; %>
+                    <% for (i = 0; i < columnHeaders.length; i++) { %>
+                    <% if (i === (columnHeaders.length - 1)) { headerClass = "text-center"; } %>
+                    <th class="<%= headerClass %>"><%= columnHeaders[i] %></th>
+                    <% } %>
+                </tr>
+                </thead>
+                <% } %>
+                <tbody>
+                <% for (i = 0; i < deviceData.length; i++ ) { %>
+                <% var device = deviceData[i] %>
+                <tr>
+                    <td width="25%" style="word-break: break-word;"><%= device.HostName %></td>
+                    <td width="25%" style="word-break: break-word;"><%= device.IPAddress %></td>
+                    <td width="25%" style="word-break: break-word;"><%= device.MACAddress %></td>
+                    <td width="25%" style="word-break: break-word;">
+                        <div class="signal levelMobile-<%= device.signalStrength %>"></div>
+                    </td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <% } else { %>
+        <!-- <button id="refresh-btn" class="btn btn-medium float-right"><%= refreshbuttonlabel %></button> -->
+        <img id="refresh-btn" style="cursor: pointer;" src="apps/wifi/images/refresh.png" border="0" height="32" width="32" class="float-right" />
+        <div id="tableSummary" style="display: block;">
+            <h2 class="title"><%= i18n.get('devicesTitle') %></h2>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="table-style table-striped">
+                <% if (accountheader) { %>
+                <thead>
+                <tr>
+                    <% var columnHeaders = accountheader.split(","); %>
+                    <% var headerClass = ""; %>
+                    <% for (i = 0; i < columnHeaders.length; i++) { %>
+                    <% if (i === (columnHeaders.length - 1)) { headerClass = "text-center"; } %>
+                    <th class="<%= headerClass %>"><%= columnHeaders[i] %></th>
+                    <% } %>
+                </tr>
+                </thead>
+                <% } %>
+                <tbody>
+                <% for (i = 0; i < deviceData.length; i++ ) { %>
+                <% var device = deviceData[i] %>
+                <tr>
+                    <td><%= device.HostName %></td>
+                    <td><%= device.IPAddress %></td>
+                    <td><%= device.MACAddress %></td>
+                    <td>
+                        <div class="signal level-<%= device.signalStrength %>"></div>
+                    </td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <% } %>
+        <% } %>
+    </div>
+
+    <div class="blank-separator"></div>
+    <% if (deviceData.length > connecteddevicesallowed) { %>
+    <div class="alert alert-danger">
+        <h3 class="bold uppercase">
+            <img class="warning-img" src="<%= i18n.get('warningImageUrl') %>" width="20" height="20">
+            <%= i18n.get('warningTitle') %>
+        </h3>
+        <%= i18n.get('warningMessage', [connecteddevicesallowed]) %>
+    </div>
+    <% } %>
+
+    <!-- Recommended Solutions for Desktop -->
+    <% if (devicemode === "desktop") { %>
+    <% if (deviceData.length !== 0) { %>
+    <% var resolutions = getResolutionsData(); %>
+    <% if (resolutions) { %>
+    <div class="well">
+        <h2 class="title"><%= i18n.get('recommendedResolutions') %></h2>
+        <table class="table-style table-striped">
+            <tbody>
+            <% if (resolutions[0].enableRepoGateway == "true") { %>
+            <tr>
+                <td><%= i18n.get('gatewayMessage') %></td>
+                <td>
+                    <button class="repogateway_btn btn btn-medium float-right"><%= repositionGatewaybuttonlabel %></button>
+                </td>
+            </tr>
+            <% } %>
+            <% if (enableSetChannelResolution == "true") { %>
+            <tr>
+                <td><%= i18n.get('channelMessage') %></td>
+                <td>
+                    <button class="setchannel_btn btn btn-medium float-right"><%= i18n.get('troubleshootText') %></button>
+                </td>
+            </tr>
+            <% } %>
+            <% if (resolutions[0].enableBadConnections == "true") { %>
+            <% var hostString = cleanHostString(resolutions[0].badConnectionshost); %>
+            <% var hostCount = getHostCount(hostString); %>
+            <tr>
+                <td>
+                    <% if (hostCount > 1) { %>
+                    <%= i18n.get('badConnectionMessagePlural', [hostString]) %>
+                    <% } else { %>
+                    <%= i18n.get('badConnectionMessage', [hostString]) %>
+                    <% } %>
+                </td>
+                <td>
+                    <button class="badconnection_btn btn btn-medium float-right"><%= badconnectionbuttonlabel %></button>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+    <div class="blank-separator"></div>
+    <a class="devicenotdetected_btn block-link"><%= i18n.get('deviceNotDetectedMessage') %></a>
+    <% } %>
+    <% } %>
+
+    <!-- Recommended Solutions for mobile -->
+    <% if (devicemode === "mobile") { %>
+    <% if (deviceData.length !== 0) { %>
+    <% var resolutions = getResolutionsData(); %>
+    <% if (resolutions) { %>
+    <div class="well" id="recommendedContainer">
+        <h2 class="title"><%= i18n.get('recommendedResolutions') %></h2>
+        <% if (resolutions[0].enableRepoGateway == "true") { %>
+        <a class="repogateway_btn block-link"><%= i18n.get('repositionGatewaybuttonlabel') %></a>
+        <% } %>
+        <% if (enableSetChannelResolution == "true") { %>
+        <a class="setchannel_btn block-link"><%= i18n.get('setWiFiChannelbuttonlabel') %></a>
+        <% } %>
+        <% if (resolutions[0].enableBadConnections == "true") { %>
+        <% var hostString = cleanHostString(resolutions[0].badConnectionshost); %>
+        <% var hostCount = getHostCount(hostString); %>
+        <a class="badconnection_btn block-link">
+            <table>
+                <tr>
+                    <td style="word-break: break-word;">
+                        <% if (hostCount > 1) { %>
+                        <%= i18n.get('badConnectionMobMessagePlural', [hostString]) %>
+                        <% } else { %>
+                        <%= i18n.get('badConnectionMessage', [hostString]) %>
+                        <% } %>
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <% } %>
+    </div>
+    <% } %>
+    <div class="blank-separator"></div>
+    <a class="devicenotdetected_btn block-link" style="display: none;"><%= i18n.get('deviceNotDetectedMessage') %></a>
+    <% } %>
+    <% } %>
+</div>

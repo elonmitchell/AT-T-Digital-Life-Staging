@@ -1,0 +1,27 @@
+<div class="module" id="module-<%= name %>">
+    <p id="service-header-<%= name %>" class="service-header">
+        <img src="<%= i18n.get(name+'ImageUrl') %>" border="0" /> <%= i18n.get(name + 'Text') %>
+    </p>
+
+    <p id="service-<%= name %>" class="service-name">
+        <%= i18n.get(name + 'TestText') %>
+
+        <span id="service-<%= name %>-button" class="service-button" style="display:none">
+            <input type="button" id="fix-all-<%= name %>" class="ssc-module-fixall-button pchc-fixall-button" value="<%= i18n.get('fixAllBtnTitle') %>" />
+        </span>
+
+        <span id="service-<%= name %>-refresh-button" class="pchc-refresh-button">
+            <img src="apps/internet/images/refresh.png" border="0" />
+        </span>
+    </p>
+
+    <ul class="operationlist" id="operation-<%= name %>">
+    </ul>
+
+    <p id="additional-service-<%= name %>" style="display:none" class="add-service-name">
+        <%= i18n.get(name + 'AdditionalText') %>
+    </p>
+
+    <ul class="additonalOperationlist">
+    </ul>
+</div>

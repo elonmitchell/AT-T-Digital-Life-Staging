@@ -1,0 +1,31 @@
+<div class="breadCrumbHolder moduleBC">
+    <div id="breadCrumb" class="breadCrumb moduleBC">
+        <ul>
+            <li>
+                <a href="#home"></a>
+            </li>
+            <%
+                var breadCrumbs = getBreadCrumbs(),
+                    idx = 0;
+                if (breadCrumbs !== undefined && breadCrumbs !== null) {
+                    if (showReverse()) {
+                        for (idx = breadCrumbs.length - 1; idx >= 0; idx--) {
+            %>
+            <li>
+                <a id="<%= breadCrumbs[idx].id %>" class="crumb"><%= getStepTrailName(breadCrumbs[idx].id , breadCrumbs[idx].displayName) %></a>
+            </li>
+            <%
+                        }
+                    } else {
+                        for (idx = 0; idx < breadCrumbs.length; idx++) {
+            %>
+            <li>
+                <a id="<%= breadCrumbs[idx].id %>" class="crumb"><%= getStepTrailName(breadCrumbs[idx].id , breadCrumbs[idx].displayName) %></a>
+            </li>
+            <%          }
+                    }
+                }
+            %>
+        </ul>
+    </div>
+</div>

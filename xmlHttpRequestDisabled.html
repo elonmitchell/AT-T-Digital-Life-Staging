@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2013 Motive, Inc.
+ All rights reserved.
+
+ Motive, Inc. Proprietary/Trade Secret ; Information
+ Not to be disclosed or used except in accordance with applicable agreements.
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>MOTIVE-Self Service Console</title>
+
+<script type="text/javascript">
+    if (window.XMLHttpRequest) {
+        try {
+            var xmlHttpReq = new XMLHttpRequest();
+            xmlHttpReq = null;
+            window.location = "index.html"
+        } catch (ex) {
+        }
+    }
+</script>
+    <style type="text/css" media="screen">
+        body {
+            background: url(images/bg_img.jpg) repeat scroll 0 0 #F8F8F8;
+            color: #333333;
+            font-family: "Helvetica neue",Helvetica,Arial,Sans-serif;
+            font-size: 14px;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            width: 100%;
+        }
+        img {
+            border:none;
+        }
+        /************************
+        ***** CONTAINERS & GLOBALS
+        ************************/
+        h1{
+            margin: 25px 15px;
+            font-size: 165%;
+        }
+        h2{
+            font-size: 120%;
+        }
+        h3{
+            font-size: 100%;
+        }
+
+        /************************
+        ***** HEADER
+        ************************/
+        #ssc-header{
+            height: 100px;
+        }
+
+        #ssc-header #logo {
+            background: url(images/motive_logo_195x60.png) no-repeat scroll 4px 20px transparent;
+            height: 100px;
+            margin-left: 0;
+            width: 300px;
+        }
+        span#bg_logo {
+            background: url(images/top_logo_bg.png) no-repeat scroll 0 -4px transparent;
+            height: 100px;
+            position: absolute;
+            width: 70px;
+        }
+        .ssc-centerwrapper {
+            margin: 0 auto;
+            position: relative;
+            width: 980px;
+        }
+
+        #ssc-header #ssc-apptitle {
+            bottom: 44px;
+            color: #00589E;
+            font-size: 22px;
+            position: absolute;
+            right: 0;
+            text-shadow: 0 1px 0 #FFFFFF, 0 2px 2px #99CCFF;
+        }
+
+        /************************
+        ***** FOOTER
+        ************************/
+        #ssc-footer {
+            color: #888888;
+            font-size: 0.9em;
+            height: 30px;
+            line-height: 15px;
+            margin: 0;
+            position: relative;
+            text-align: left;
+            width: 980px;
+        }
+
+        /************************
+        ***** COLUMN SETUP
+        ************************/
+        #ssc-mainContainer {
+            background-color: transparent;
+            margin: 0 auto;
+            min-width: 980px;
+            padding-bottom: 20px;
+            width: 980px;
+        }
+        #ssc-content {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #DDDDDD;
+            margin: 0 auto 20px;
+            min-height: 350px;
+            overflow: hidden;
+            width: 980px;
+        }
+        #ssc-unsupported-content h1 {
+            color: #C88039;
+            text-align: center;
+            font-weight: normal;
+        }
+        #ssc-unsupported-content h3 {
+            color: #999999;
+            text-align: center;
+        }
+        #ssc-unsupported-content .box {
+            border: 1px solid #DDDDDD;
+            float: left;
+            height: 100px;
+            margin: 20px;
+            padding: 20px 20px 30px;
+            text-align: center;
+            width: 162px;
+            background: url(images/backgradient_1x250.gif) repeat-x scroll left bottom #FFFFFF;
+        }
+        #ssc-unsupported-content .box p {
+            margin: 0;
+            padding: 18px 0 0;
+        }
+    </style>
+    </head>
+    <body>
+        <div id="ssc-mainContainer">
+            <span id="bg_logo"></span>
+            <div class="ssc-centerwrapper" id="ssc-header">
+            <div id="logo"></div>
+                <div id="ssc-apptitle">Self Support Console</div>
+            </div>
+            <div id="ssc-content">
+            <div id="ssc-unsupported-content">
+                <h1>Improve Your Experience</h1>
+                <h3>You're security settings will prevent SSC from functioning correctly.</h3>
+                <h3>You need to select Internet Options/Advanced and</h3>
+                <h3>make sure that "Enable native XMLHTTP support" is checked</h3>
+            </div>
+        </div>
+        <div id="ssc-footer">
+            <div class="clearboth" id="ssc-footer">
+                <img border="0" align="right" src="images/alcatelLucent_logo_143x30.png">Copyright &copy; 2013 Alcatel-Lucent. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

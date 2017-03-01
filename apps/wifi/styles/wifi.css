@@ -1,0 +1,729 @@
+/*
+ * Copyright (c) 2013 Motive, Inc.
+ * All rights reserved.
+ *
+ * Motive, Inc. Proprietary/Trade Secret ; Information
+ * Not to be disclosed or used except in accordance with applicable agreements.
+ */
+#basic-settings h3, #basic-settings p, #advanced-settings h3, #advanced-settings p {
+    clear: both;
+    padding: 5px 0 0 20px;
+	color: #666;
+	font-size: 15px;
+}
+#wifi-secondary {
+    padding-top: 10px;
+}
+#wifisetup > .leftcolumn {
+    float: left;
+    margin-top: 0;
+    padding-top: 5px;
+    width: 62%;
+}
+.orgtext {
+    color: #C88039 !important;
+}
+#showRecom_btn {
+	background: url(apps/wifi/images/navigationbtn_back.png) no-repeat scroll 0 0 transparent;
+	color: #fff;
+    font-size: 13px;
+	font-weight: bold;    
+    padding: 8px 5px 5px 13px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+	width: 106px;
+	height: 30px;
+}
+.floatLeft {
+    float: left;
+}
+.floatRight {
+	float: right;
+}
+#basic-settings input, #advanced-settings select {
+    padding: 5px;
+    text-align: left;
+    width: 220px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.075) inset;
+}
+.regenpwd {
+    margin-top: 10px;
+}
+#advanced {
+    width: auto !important;
+}
+#errormessagelabel > p, #errormessagepasslabel > p {
+    color: #FF0000;
+}
+#errormessagelabel > p, #errormessagepasslabel > p, #backupopt {
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+#basic-settings > p, #advanced-settings > p {
+    clear: left;
+    color: #666666;
+    float: left;
+    margin: 5px 0 10px;
+    padding: 0 0 0 5px;
+}
+.leftcolumn > p#btnbar {
+    clear: both;    
+	text-align: center;
+}
+#advanced, #backup, #advanced-settings select, #advanced-settings input, #basic-settings input {
+    cursor: pointer;
+    color: #777;
+}
+#wifisetup > .leftcolumn {
+    float: left;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+}
+.leftcolumn > p#btnbar {
+    clear: both;
+}
+#wifisetup > .skipicon {
+    text-align: right;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#done_button, #modify_button, #save_button, #cancel_button, #skipsetup {
+    margin: 10px 5px 10px 10px;
+}
+a, a:link, a:visited {
+    color: #067AB4;
+    text-decoration: none;
+}
+.ssc-wifi-errormessage {
+    background: url(apps/wifi/images/error_24x24.png) no-repeat scroll 15px 5px transparent;
+    color: #C30041;
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 45px !important;
+    padding-top: 6px !important;
+}
+.guestUserExceeds {
+    background: url(apps/wifi/images/warning_48x48.png) no-repeat scroll 0 0 transparent;
+    color: #C30041;
+    font-size: 14px;
+    height: 48px;
+    margin: 0 0 5px !important;
+    padding: 24px 0 0 60px;
+}
+.boldtext {
+    color: #666;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 10px 0 10px 10px !important;
+}
+#backupopt {
+    color: #666 !important;
+    font-size: 17px;
+    margin: 0 0 10px 10px !important;
+}
+/**********************
+* PROMPT DISPLAY STEP *
+***********************/
+#workflow-prompt > input#prompt {
+    background: none repeat scroll 0 0 #FBFBFB;
+    border: 1px solid #ADC2D6;
+    border-radius: 4px 4px 4px 4px;
+    margin: 0 20px 20px 15px;
+    padding: 5px;
+    text-align: left;
+    width: 242px;
+    float: left;
+    clear: both;
+}
+#workflow-prompt > input#prompt:focus {
+    background-color: #fff;
+    border-color: #28B2E4;
+    outline: none;
+    -moz-box-shadow: 0 0 6px #3EBDFF;
+    -webkit-box-shadow: 0 0 6px #3EBDFF;
+    box-shadow: 0 0 6px #3EBDFF;
+}
+#workflow-prompt > div.error {
+    clear:both;
+    margin: 10px;
+    background: url(images/error_24x24.png) no-repeat scroll 3px 0 transparent;
+    color: #C30041;
+    font-size: 12px;
+    height: 24px;
+    padding-left: 30px !important;
+    padding-top: 6px !important;
+    display: none;
+}
+#workflow-prompt > div.prompt {
+    color: #666666;
+    float: left;
+    font-size: 15px;
+    margin: 20px 20px 20px 15px;
+}
+#wifisetup > .rightcolumn {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    color: #666;
+    float: left;
+    margin-top: 10px;
+    padding: 15px;
+    width: 92%;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15) !important;
+}
+#restore_button {
+    float: right;
+}
+#advanced-settings {
+    margin-bottom: 10px;
+}
+.rightcolumn p {
+    clear: both;
+    line-height: 20px;
+    margin: 10px 10px 10px 0;
+    padding: 0;
+}
+
+/******************************
+*  TROUBLESHOOT WIFI TEMPLATE *
+*******************************/
+#guestWiFiTroubleshoot > p#btnbarrefresh {
+    clear: both;
+    float: right;
+    margin: 0 0 20px;
+    text-align: right;
+}
+.wifiTroubleshootDisplay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    clear: both;
+}
+.wifiTroubleshootDisplay th:first-child {
+    border-radius: 5px 0 0 0;
+}
+.wifiTroubleshootDisplay th {
+    background: none repeat scroll 0 0 #999999;
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 0;
+    padding: 5px;
+    text-transform: uppercase;
+}
+.wifiTroubleshootDisplay th:last-child {
+    border-radius: 0 5px 0 0;
+}
+.statusimage {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.wifiTroubleshootDisplay td:last-child {
+    background: none repeat scroll 0 0 #F6F6F6;
+}
+.wifiTroubleshootDisplay td {
+    word-wrap: break-word;
+}
+#guestWiFiTroubleshoot > div {
+    clear: both;
+}
+.redcolor {
+    color: #C30041;
+}
+.graycolor {
+    color: #888;
+}
+.flrightbutton {
+    float: right;
+    margin: 15px -8px 0 0;
+}
+.ssc-button-es {
+    margin: 0 0 5px 11px !important;
+}
+#btnBarConfig {
+    clear: both;
+    padding-top: 20px;
+	text-align: center;
+}
+#ssc-dashboard-content div.ui-hide-label {
+    height: 530px !important;
+}
+.white-label {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    color: #444;
+    font-size: 15px;
+    height: auto;
+    padding-bottom: 10px;
+}
+.first {
+    border-radius: 5px 5px 0 0 !important;;
+    margin-top: 20px;
+}
+.last {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0 0 5px 5px !important;;
+}
+.flleft{
+    float: left;
+    clear: both;
+	padding-left: 15px;
+    padding-top: 10px;
+}
+.flright {
+    clear: both;
+    float: right;
+	margin: -18px 0 0;
+}
+.flrightadv {
+    clear: both;
+    float: right;
+    margin: -20px -10px -7px 0;
+}
+.flleftadv {
+    clear: both;
+    float: left;
+    padding: 10px 0 0 15px;
+}
+.button:active {
+    outline: none;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+.button:-moz-focus-inner {
+    border: none;
+}
+
+.ssc-button {
+    border: none;
+}
+
+/**********************
+* WIFI OPTIMIZATION   *
+***********************/
+
+#wifi-optimization .title {
+    padding-left: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;	
+}
+#tableSummaryMobile {
+	clear: both;
+	margin-top: -45px;
+}
+#tableSummaryMobile .title {
+	clear: both;
+	padding-top: 5px;
+	color: #369;
+}
+#wifi-optimization .btn-medium {
+    font-size: 0.8em;
+    word-break: normal;
+    /* Used in Newer SSC - padding: 2px 8px; */
+}
+#wifi-optimization #refresh-btn {
+    position: relative;
+    float: right;
+    top: -50px;
+    right: 5px;
+}
+#wifi-optimization .no-devices-found {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+    margin-bottom: 0;
+}
+#wifi-optimization .signal {
+    margin: 4px auto 0;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+#wifi-optimization .signal.level-1:before {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #c0392b;
+    content: "\02DF";
+    font-size: 48px;
+    position:relative;
+    top: 10px;
+    margin: 0 auto 0;
+}
+#wifi-optimization .signal.levelMobile-1 {
+    width: 16px;
+    height: 16px;
+    background: url(apps/wifi/images/cross.png) no-repeat scroll 50% 70% transparent !important;
+    margin: 0 auto 0;
+    -moz-border-radius: 0%;
+    -webkit-border-radius: 0%;
+    border-radius: 0%;
+	vertical-align: bottom !important;
+	padding-top: 20px !important;
+}
+#wifi-optimization .signal.levelMobile-2, #wifi-optimization .signal.levelMobile-3, #wifi-optimization .signal.levelMobile-4 {
+	margin-top: 15px !important;
+}
+#wifi-optimization .signal.level-2, #wifi-optimization .signal.levelMobile-2 {
+    background-color: #c0392b;	
+}
+#wifi-optimization .signal.level-3, #wifi-optimization .signal.levelMobile-3 {
+    background-color: #e67e22;	
+}
+#wifi-optimization .signal.level-4, #wifi-optimization .signal.levelMobile-4 {
+    background-color: #27ae60;	
+}
+#wifi-optimization .block-link {
+    border-radius: 4px;
+    display:block;
+    background:url(images/forward.png) no-repeat scroll 98% 14px #ffffff;
+    color: #666;
+    border:1px solid #ccc;
+    line-height:30px;
+    padding:4px 16px;
+    text-align: left;
+    cursor: pointer;
+}
+#wifi-optimization .block-link-large {
+    border-radius: 4px;
+    display:block;
+    background:url(images/forward.png) no-repeat scroll 98% 50% #ffffff;
+    color: #666;
+	line-height:0px !important;
+    border:1px solid #ccc;
+    padding:4px 16px;
+    text-align: left;
+    cursor: pointer;
+	margin-top: -15px;
+}
+#wifi-optimization .block-link:hover, #wifi-optimization .block-link-large:hover {
+    color: #333;
+    border-color: #666;
+}
+#wifi-optimization .alert-danger .warning-img {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Fix for Tables - Not Needed in Newer SSC */
+#wifi-optimization .table-style{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:table;background-color:transparent;border-collapse:collapse;border-spacing:0;max-width:100%;width:100%;}
+#wifi-optimization .table-style td,
+#wifi-optimization .table-style th{display:table-cell;}
+#wifi-optimization .table-style th.text-center{text-align: center;}
+#wifi-optimization .table-style thead{border-color:inherit;display:table-header-group;vertical-align:middle;}
+#wifi-optimization .table-style tbody{border-color:inherit;display:table-row-group;vertical-align:middle;}
+#wifi-optimization .table-style tr{border-color:inherit;display:table-row;vertical-align:inherit;}
+#wifi-optimization .table-style th{font-weight:bold;text-align:left;color:#69b;}
+#wifi-optimization .table-style>thead>tr>th{border-bottom:2px solid #ddd;vertical-align:bottom;color:#69b;}
+
+#wifi-optimization .table-style>thead>tr>th,
+#wifi-optimization .table-style>tbody>tr>th,
+#wifi-optimization .table-style>tfoot>tr>th,
+#wifi-optimization .table-style>thead>tr>td,
+#wifi-optimization .table-style>tbody>tr>td,
+#wifi-optimization .table-style>tfoot>tr>td{
+    border-top:1px solid #ddd;
+    padding:8px;
+    vertical-align:top;
+    border-radius: 0;
+    background: inherit;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    /*width: inherit;*/
+    margin: 0;
+    height: inherit;
+    border-bottom: inherit;
+}
+
+.wifi-optimization-mob .table-style>thead>tr>th,
+.wifi-optimization-mob .table-style>tbody>tr>th,
+.wifi-optimization-mob .table-style>tfoot>tr>th,
+.wifi-optimization-mob .table-style>thead>tr>td,
+.wifi-optimization-mob .table-style>tbody>tr>td,
+.wifi-optimization-mob .table-style>tfoot>tr>td{
+    background: inherit;
+    border-bottom: inherit;
+    border-radius: 0 0 0 0;
+    border-top: 1px solid #DDDDDD;
+    color: inherit;
+    font-size: 14px !important;
+    height: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 5px 0 0 12px !important;
+    vertical-align: middle !important;
+    /*width: inherit;*/
+    text-align: left;
+}
+#wifi-optimization .table-style>thead>tr>td,
+#wifi-optimization .table-style>tbody>tr>td,
+#wifi-optimization .table-style>tfoot>tr>td{
+    word-break: break-word;
+}
+#wifi-optimization .table-striped>tbody>tr:nth-child(odd)>td,
+#wifi-optimization .table-striped>tbody>tr:nth-child(odd)>th{background-color:#f9f9f9; word-break: break-all;}
+
+/***************************
+* Dialog Styles
+***************************/
+.ui-widget-overlay {
+    background-color: #F2F2F2;
+    background-image: none;
+    height: 100%;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1040;
+}
+.ui-dialog .ui-dialog-title {
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 5px 5px 5px 2px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+#dialog-confirm.ui-dialog-content {
+    border: 0 none;
+    color: #666666;
+    overflow: auto;
+    padding: 18px 1em 0.5em 52px;
+    position: relative;
+}
+.ui-dialog .ui-dialog-titlebar {
+    background: none repeat scroll 0 0 #EAEAEA;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px 15px;
+    position: relative;
+    text-decoration: none;
+}
+.ui-dialog {
+    padding: 0 0 0.2em 0;
+    border: 3px solid #5C6BD0;
+}
+#dialog-confirm {
+    height: 100% !important;
+}
+.ui-dialog .ui-dialog-content {
+    color: #666;
+}
+#dialog-rebooting.ui-widget-content {
+    background: url(images/circular_progress_mini.gif) no-repeat scroll 15px 20px transparent;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+.content-region .wifi-optimization-mob {
+	clear: both;
+    margin: 0 0 0 -1% !important;
+    padding: 0;
+    width: 104% !important;
+}
+#refreshBtnHolder {
+	margin-top: 44px;	
+}
+#backToRecommend {	
+	margin: 5px;
+}
+
+.page-region label.switch {
+    float: right;
+    display: block;
+    position: relative;
+}
+.page-region label.switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 74px;
+    height: 26px;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 3em;
+    height: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    margin: 0;
+    background: white;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-origin: border-box;
+    background-clip: border-box;
+    overflow: hidden;
+    transition-duration: .1s;
+    transition-property: padding, width, background-position, text-indent;
+    font-size: 24px;
+    /* border-radius fix for S4*/
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999x;
+    border-bottom-left-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+.page-region label.switch input[type="checkbox"].ios-switch.checked + div {
+    padding-left: 2em;
+    width: 1em;
+    background-position: 0 0;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:before {
+    content: 'On';
+    float: left;
+    width: 1.65em;
+    height: 1.65em;
+    margin: -0.1em;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: inherit;
+    background: none repeat scroll 0 0 #3498DB;
+    color: #369;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+    text-indent: -2.5em;
+}
+.page-region label.switch input[type="checkbox"].ios-switch:active + div:before {
+    background-color: #eee;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:before,
+.page-region label.switch input[type="checkbox"].ios-switch + div:after {
+    font: bold 60%/1.9 sans-serif;
+    text-transform: uppercase;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:after {
+    content: 'Off';
+    float: left;
+    text-indent: .5em;
+    color: rgba(0, 0, 0, 0.45);
+    text-shadow: none;
+}
+.page-region label.switch {
+    display: block;
+    position: relative;
+}
+.page-region label.switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 3em;
+    height: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    margin: 0;
+    background: white;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-origin: border-box;
+    background-clip: border-box;
+    overflow: hidden;
+    transition-duration: .1s;
+    transition-property: padding, width, background-position, text-indent;
+    -webkit-transition-duration: .1s;
+    -webkit-transition-property: padding, width, background-position, text-indent;
+    font-size: 24px;
+    /* border-radius fix for S4*/
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999x;
+    border-bottom-left-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+.page-region label.switch input[type="checkbox"].ios-switch.checked + div {
+    padding-left: 2em;
+    width: 1em;
+    background-position: 0 0;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:before {
+    content: 'On';
+    float: left;
+    width: 1.65em;
+    height: 1.65em;
+    margin: -0.1em;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: inherit;
+    background: white;
+    color: white;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+    text-indent: -2.5em;
+}
+.page-region label.switch input[type="checkbox"].ios-switch:active + div:before {
+    background-color: #eee;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:before,
+.page-region label.switch input[type="checkbox"].ios-switch + div:after {
+    font: bold 60%/1.9 sans-serif;
+    text-transform: uppercase;
+}
+.page-region label.switch input[type="checkbox"].ios-switch + div:after {
+    content: 'Off';
+    float: left;
+    text-indent: .5em;
+    color: rgba(0, 0, 0, 0.45);
+    text-shadow: none;
+}
+.page-region label.checkbox {
+    position: relative;
+    display: inline-block;
+}
+.page-region label.checkbox * {
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+}
+.page-region label.checkbox input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 35px;
+}
+.page-region label.checkbox input[type="checkbox"]:checked ~ .checkbox {
+    color: gray;
+}
+.page-region label.checkbox .checkbox {
+    content: "";
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin: 0;
+    text-align: center;
+    border: solid 1px #ccc;
+    background: #ffffff;
+    color: #ffffff;
+    font-size: 1.2em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    /* border-radius fix for S4*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.leftcolumn > div#btnbar {
+	clear: both;
+    text-align: center;
+}
+#basic-settings input:focus, #advanced-settings select:focus {
+	border: 1px solid #2980B9;
+	background: #fff;
+}

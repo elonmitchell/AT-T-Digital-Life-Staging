@@ -1,0 +1,51 @@
+    <%
+    if (getConnectedSSID() !== "") {
+    %>
+        <h1><%= i18n.get('wifiNetworkHeader') %></h1>
+    <% } else { %>
+        <h1><%= i18n.get('nowifiNetworkHeader') %></h1>
+    <% } %>
+<div class="well wifi-monitor">
+    <%
+    if (getConnectedSSID() !== "") {
+    var connections = getConnectedSSID();
+    %>
+    <h2 class="bold"><%= i18n.get('wifiNetworkPageHeader') %></h2>
+    <p>
+        <%= i18n.get('wifiNetworksubHeaderFir') %>
+        <%= i18n.get('wifiNetworksubHeaderSec') %>
+    </p>
+    <p>
+        <%= i18n.get('wifiNetworkTryConnect') %>
+    </p>
+    <table class="table-style table-striped">
+        <thead>
+        <tr>
+            <th>Wi-Fi Networks</th>
+            <th>Signal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (i = 0; i < connections.length; i = i + 1) {
+        %>
+        <tr class="proceedFlow">
+            <%
+            var wifiSSID = connections[i].SSID;
+            var wifiChannel = connections[i].Channel;
+            var btnID = "proceed" + "_" + wifiSSID + "_" + wifiChannel;
+            %>
+            <td id="<%= btnID %>"><%= connections[i].SSID %></td>
+            <td><%= connections[i].Signal %></td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <button class="button btn btn-inline" id="skip"><%= i18n.get('skipBtn') %></button>
+    <% } else { %>
+    <h2 class="bold"><%= i18n.get('nowifiNetworkPageHeader') %></h2>
+    <p>
+        <%= i18n.get('nowifiNetworksubHeader') %>
+    </p>
+    <button class="button btn btn-inline" id="finish"><%= i18n.get('finishBtn') %></button>
+    <% } %>
+</div>

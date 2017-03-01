@@ -1,0 +1,208 @@
+<div id="wifisetup" class="content ui-hide-label">
+
+    <!-- Show Status -->
+    <%
+    if (showstatus) {
+    %>
+    <!--
+    <div id="status_area">
+    <%= statustext %>
+    </div>
+    -->
+    <%
+    }
+    %>
+    <%
+    if ( restorable === true || showstatus === true || autoenable === true) {
+    %>
+    <div class="rightcolumn">
+        <%= restoretext %>
+        <%
+        if ( restorable === true && restorebtnlabel !== "" )  {
+        %>
+        <span class="restorebtn"><button id="restore_button" class="ssc-button"><%= restorebtnlabel %></button></span>
+        <%
+        }
+        %>
+        <%
+        if ( autoenable === true )  {
+        %>
+        <span class="flrightbutton"><button id="autoenable_button" class="ssc-button"><%= autoenablebtnlabel %></button></span>
+        <%
+        }
+        %>
+    </div>
+    <%
+    }
+    %>
+
+    <% if (( restorable === true )  && ( advcbtext !== "")) { %>
+        <div id="btnBarConfig">
+            <button id="configactivate" class="ssc-button"><%= i18n.get('configactivate') %></button>
+        </div>
+        <div class="leftcolumn" style="display: none;">
+    <% } else { %>
+        <div class="leftcolumn">
+    <% } %>
+
+
+	<div id="basic-settings">
+        <!-- Network Name -->
+
+        <div class="white-label first">
+            <div id="errormessagelabel" style="display:none;">
+                <p class="ssc-wifi-errormessage"><%= errormessage %></p>
+            </div>            
+            <h3>
+				<label for="<%= netnamelabel %>" ><%= netnamelabel %></label>
+            </h3>
+            <p>
+				<input class="form-control" name='netname' id='netname' value="<%= getNetnameValue() %>" placeholder="<%= getNetnameValue() %>" type="text" autocorrect="off" autocapitalize="off"
+                <% if (showstatus || guestwifisetup) { %>
+                   disabled="disabled"
+                <%
+                }
+                %>
+            />            
+            </p>
+        </div>
+
+
+        <!-- Network Password -->
+        <div class="white-label last">
+            <div id="errormessagepasslabel" style="display:none;">
+                <p class="ssc-wifi-errormessage"><%= errormessagepass %></p>
+            </div>
+            <p>
+            <h3>
+				<label for="<%= passwordlabel %>" ><%= passwordlabel %></label>
+            </h3>
+			<p>
+            <input class="form-control" name='password' id='password' value="<%= getPasswordValue() %>" placeholder="<%= getPasswordValue() %>" type="text" maxlength="64" maxlength="64" autocorrect="off" autocapitalize="off"
+                <% if (showstatus || guestwifisetup) { %>
+                disabled="disabled"
+                <%
+                }
+                %>
+            />            
+            </p>
+            <%
+            if ( regeneratepassword === true )  {
+            %>
+            <p class="regenpwd"><button id="regeneratepassword_button" class="ssc-button"><%= regeneratepasswordbtnlabel %></button></p>
+            <%
+            }
+            %>
+        </div>
+		<%
+		if ( advcbtext !== "")  {
+        %>
+        <!-- Advanced Label -->
+        <p class="boldtext">
+            <input type="checkbox" id="advanced" name="advanced" value="0" />&nbsp;<label for="<%= advcbtext %>"><%= advcbtext %></label>
+        </p>
+		<%
+		}
+		%>
+    </div>
+
+	<%
+    if ( advcbtext !== "")  {
+    %>
+    <div id="advanced-settings">
+        <div class="white-label first">
+        <h3>
+            <label for="<%= visibilitylabel %>"><%= visibilitylabel %></label>
+        </h3>
+        <p>
+			<select id="visibility">
+					<%
+					var visibilitylist = visibilitylist.split(",");
+					for( i=0; i < visibilitylist.length; i++ ) {
+					%>
+
+						<option value="<%= visibilitylist[i] %>"
+							<% if (visibilitylist[i] === getVisibilityValue()) { %>
+								selected="true"
+							<% } %>
+						><%= visibilitylist[i]  %></option>
+					<% } %>
+			</select>
+       </p>
+	   </div>
+       <div class="white-label">
+        <h3>
+            <label for="<%= channellabel %>"><%= channellabel %></label>
+        </h3>
+        <p>
+            <select name="cbChannel" id="cbChannel">
+                <%
+                var channellist = channellist.split(",");
+                for( i=0; i < channellist.length; i++ ) {
+                %>
+                    <option value="<%= channellist[i] %>"
+                        <%
+                        if (channellist[i] === getChannelValue()) {
+                        %>
+                            selected="true"
+                        <%
+                        }
+                        %>
+                    ><%= channellist[i]  %></option>
+                <%
+                }
+                %>
+            </select>
+          </p>
+       </div>
+       <div class="white-label last">
+        <h3>
+             <label for='<%= securitytypelabel %>'><%= securitytypelabel %></label>
+         </h3>
+        <p>
+             <select name="cbSecurity" id="cbSecurity">
+                <%
+                var securitytypelist = securitytypelist.split(",");
+                for( i=0; i < securitytypelist.length; i++ ) {
+                %>
+                    <option value="<%= securitytypelist[i] %>"
+                        <%
+                        if (securitytypelist[i] === getSecurityTypeValue()) {
+                        %>
+                            selected="true"
+                        <%
+                        }
+                        %>
+                    ><%= securitytypelist[i]  %></option>
+                 <% } %>
+            </select>
+        </p>
+       </div>
+    </div>
+
+        <%
+        if ( showstatus === false ) {
+			if (( hiderestore !== "true" )  || ( hiderestore === "" )) {
+        %>
+        <p id="backupopt">
+            <input type="checkbox" id="backup" name="backup" checked="checked" value="1"/>&nbsp;<label for='<%= backupcblabel %>'><%= backupcblabel %></label>
+        </p>
+        <%
+			}
+		}
+        %>
+	<%
+	}
+	%>
+
+    <p id="btnbar">
+        <%
+        if ( showskip === true ) {
+        %>
+        <button id="save_button" class="ssc-button"><%= savebtnlabel %></button>
+        <%
+        }
+        %>
+    </p>
+    </div>
+</div>	<!-- /content -->

@@ -1,0 +1,11 @@
+<img class="alert-icon" width="25" height="25" src="<%= i18n.get('alertSeverity'+attributes.alertSeverity+'ImageURL') %>">
+<div class="alert-content">
+    <% if (getTitle() != "") { %>
+    <div class="title uppercase"><%= getTitle() %></div>
+    <% } %>
+    <% if (getDescription() != "") { %>
+    <div class="desc"><%= getDescription() %></div>
+    <% } %>
+</div>
+<img class="alert-arrow" width="15" src="<%= i18n.get('alertSelectedArrowURL') %>">
+<div class="clear"></div>

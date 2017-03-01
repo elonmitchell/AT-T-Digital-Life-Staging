@@ -1,0 +1,113 @@
+<div id="emailsetup" class="content ui-hide-label">
+
+    <div class="leftcolumn">
+
+        <p class="ssc-email-infomessage">
+            <%= closeMailClientsText %>
+        </p>
+
+        <div class="white-label first">
+            <div id="errormessagelabel" style="display:none;">
+                <p class="ssc-email-errormessage"><%= errormessage %></p>
+            </div>
+            <!-- Display Name -->
+            <p>
+            <span class="flleft">
+                <label for="<%= displaynamelabel %>"><%= displaynamelabel %></label>
+             </span>
+            <span class="flright">
+                <input name='emaildisplayname' id='emaildisplayname' value="" type="text" />
+             </span>
+            </p>
+        </div>
+
+        <div class="white-label last">
+            <div id="errormessageidlabel" style="display:none;">
+                <p class="ssc-email-errormessage"><%= errormessageid %></p>
+            </div>
+            <p>
+            <span class="flleft">
+                <label for="<%= emailidlabel %>"><%= emailidlabel %></label>
+            </span>
+            <span class="flright">
+            <input name='emailid' id='emailid' value="" type="text" />
+            <label for="<%= emaildomainlabel %>"><%= emaildomainlabel %></label>
+            <select name="emaildomain" id="emaildomain">
+                <%
+                    var emaildomainlist = emaildomainlist.split(",");
+                    for( i=0; i < emaildomainlist.length; i++ ) {
+                %>
+                    <option value="<%= emaildomainlist[i] %>" selected="true"><%= emaildomainlist[i] %></option>
+                <%
+                }
+                %>
+            </select>
+            </span>
+            </p>
+        </div>
+
+        <div class="white-label first">
+            <div id="errormessagepasslabel" style="display:none;">
+                <p class="ssc-email-errormessage"><%= errormessagepass %></p>
+            </div>
+            <p>
+            <span class="flleft">
+                <label for="<%= emailpasswordlabel %>"><%= emailpasswordlabel %></label>
+             </span>
+            <span class="flright">
+                <input name='emailpassword' id='emailpassword' value="" type="password" maxlength="63" />
+            </span>
+            </p>
+        </div>
+
+        <div class="white-label">
+            <div id="errormessageconflabel" style="display:none;">
+                <p class="ssc-email-errormessage"><%= errormessageconfpass %></p>
+            </div>
+            <p>
+            <span class="flleft">
+                <label for="<%= emailconpasswordlabel %>"><%= emailconpasswordlabel %></label>
+            </span>
+            <span class="flright">
+                <input name='emailconpassword' id='emailconpassword' value="" type="password" maxlength="63" />
+            </span>
+            </p>
+        </div>
+
+        <div class="white-label last maillistLastRow">
+            <p>
+            <span class="flleft">
+                <label for="<%= mailclientslabel %>"><%= mailclientslabel %></label>
+            </span>
+           <span class="flright maillist">
+                <%
+                var mailclientslist = mailclientslist.split(";");
+                for( i=0; i < mailclientslist.length; i++ ) {
+                %>
+                <input type='radio'
+                name='<%= mailclients %>'
+                id='<%= mailclientslist[i] %>'
+                value='<%= mailclientslist[i] %>'
+                checked='checked'
+                />&nbsp;<%= mailclientslist[i] %>
+                <br />
+                <%
+                }
+                %>
+           </span>
+            </p>
+        </div>
+
+    <!-- Default Account -->
+    <p id="setDefault">
+        <input type="checkbox" id="isDefault" name="isDefault" value="yes" checked="checked" />
+        <label for="<%= defaultaccountlabel %>"><%= defaultaccountlabel %></label>
+    </p>
+
+    <!-- Button -->
+    <p id="btnbar">
+        <a id="configure_button" class="ssc-button ssc-button-email"><%= configureBtnLabel %></a>
+        <a id="skipsetup" class="ssc-button ssc-button-email"><%= skiplabel %></a>
+    </p>
+    </div>
+</div><!-- /emailsetup -->

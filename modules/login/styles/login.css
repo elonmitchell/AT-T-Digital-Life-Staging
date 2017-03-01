@@ -1,0 +1,24 @@
+.primary-font{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+.hidden{display:none;}
+.block{display:block;}
+.inline-block{display:inline-block;}
+.inline{display:inline;}
+.table{display:table;}
+.table-cell{display:table-cell;}
+.float-left{float:left;}
+.float-right{float:right;}
+.clear{clear:both;}
+.clearfix{display:block;zoom:1;}.clearfix:after{clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
+.text-left{text-align:left;}
+.text-center{text-align:center;}
+.text-right{text-align:right;}
+.uppercase{text-transform:uppercase;}
+.bold{font-weight:bold;}
+.background-clip-padding{-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;}
+.pointer{cursor:pointer;}
+.topbar{-webkit-box-shadow:0 1px 1px rgba(0, 0, 0, 0.04);-moz-box-shadow:0 1px 1px rgba(0, 0, 0, 0.04);box-shadow:0 1px 1px rgba(0, 0, 0, 0.04);background:url("images/motive_logo_195x60.png") no-repeat 1% 45%;background-size:100px;background-color:#f8f8f8;height:40px;border-bottom:1px solid #bbb;}
+.login-component{margin-top:100px;}.login-component .motive-logo{background:url("images/motive_logo_195x60.png") no-repeat;height:60px;margin:0 auto 0 auto;width:195px;}
+.login-component .authenticationBox{background:url(images/lock-white.png) no-repeat scroll 0 0 transparent;height:30px;margin:0 auto;padding-left:40px;padding-top:10px;text-transform:uppercase;}
+.login-component .login-spinner{position:relative;top:-21px;}
+.login-component .guestlogin,.login-component .login,.login-component .alert,.login-component .form-control{margin-left:auto;margin-right:auto;max-width:480px;}
+@media screen and (max-width:480px){.login-component{margin-top:40px;}}

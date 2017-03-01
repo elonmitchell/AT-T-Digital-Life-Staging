@@ -1,0 +1,17 @@
+<div id="workflow-profile-download" class="workflow-content">
+    <div class="well">
+        <div class="download-content">
+            <span class="message"><%= getBody() %></span>
+        </div>
+        <div class="continue-content hidden">
+            <%= getContinueText() %>
+        </div>
+        <div class="error-content alert alert-danger hidden">
+            <%= getErrorText() %>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <button id="download_profile" class="button download-content"><%= downloadBtnText %></button>
+        <button id="continue" class="button continue-content error-content hidden"><%= button %></button>
+    </div>
+</div>
